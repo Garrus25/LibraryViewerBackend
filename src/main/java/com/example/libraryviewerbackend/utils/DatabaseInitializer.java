@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class DatabaseInitializer implements InitializingBean {
-    private static final String CHECK_IF_DATABASE_EXISTS_QUERY = "SELECT 1 FROM pg_catalog.pg_database WHERE lower(datname) = lower('libraryViewerDb')";
-    private static final String CREATE_DATABASE_QUERY = "CREATE DATABASE libraryViewerDb";
+    private static final String CHECK_IF_DATABASE_EXISTS_QUERY = "SELECT 1 FROM pg_catalog.pg_database WHERE lower(datname) = lower('libraryviewerdb')";
+    private static final String CREATE_DATABASE_QUERY = "CREATE DATABASE libraryviewerdb";
 
     @PersistenceContext
     private EntityManager entityManager;
