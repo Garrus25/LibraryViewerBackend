@@ -1,13 +1,9 @@
 package com.example.libraryviewerbackend.utils;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.Query;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.swing.plaf.nimbus.State;
 import java.sql.*;
 
 
@@ -16,9 +12,6 @@ import java.sql.*;
 public class DatabaseInitializer implements InitializingBean {
     private static final String CHECK_IF_DATABASE_EXISTS_QUERY = "SELECT 1 FROM pg_catalog.pg_database WHERE lower(datname) = lower('libraryviewerdb')";
     private static final String CREATE_DATABASE_QUERY = "CREATE DATABASE libraryviewerdb";
-
-    @PersistenceContext
-    private EntityManager entityManager;
 
     @Override
     public void afterPropertiesSet(){
