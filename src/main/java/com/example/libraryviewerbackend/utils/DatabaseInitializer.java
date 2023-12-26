@@ -7,6 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.swing.plaf.nimbus.State;
+import java.sql.*;
+
 
 @Configuration
 @Slf4j
@@ -19,12 +22,20 @@ public class DatabaseInitializer implements InitializingBean {
 
     @Override
     public void afterPropertiesSet(){
-        Query query = entityManager.createNativeQuery(CHECK_IF_DATABASE_EXISTS_QUERY);
-        if (query.getSingleResult() != null) {
-            log.info("Database already exists");
-            return;
+        try {
+            Connection connection = DriverManager.getConnection(DatabaseCredentialsProvider.getUrl(),
+                    DatabaseCredentialsProvider.getLogin(), DatabaseCredentialsProvider.getPassword());
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(CHECK_IF_DATABASE_EXISTS_QUERY);
+            if (resultSet.next()){
+                log.info("Database already exists");
+            }else {
+                statement.executeUpdate(CREATE_DATABASE_QUERY);
+                log.info("Database created successfully");
+            }
+        } catch (SQLException e) {
+            log.error(String.format("Error while creating database:  %s", e.getMessage()));
         }
-        entityManager.createQuery(CREATE_DATABASE_QUERY);
-        log.info("Database created successfully");
+
     }
 }
