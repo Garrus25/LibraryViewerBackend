@@ -1,9 +1,9 @@
 openapi: "3.0.1"
 
 info:
-  title: "User"
-  version: "1"
-  description: User API
+  title: "Library Viewer Backend"
+  version: "0.0.1"
+  description: API for the Library Viewer Application
 
 servers:
   - url: http://localhost:8080/api
@@ -13,8 +13,8 @@ paths:
 
   /user:
     post:
-      summary: Save User
-      operationId: saveUser
+      summary: Create User object
+      operationId: createUser
       requestBody:
         content:
           application/json:
@@ -30,7 +30,7 @@ paths:
 
   /user/{id}:
     get:
-      summary: Get User By Id
+      summary: Find User by Id
       operationId: getUserById
       parameters:
         - name: id
@@ -39,7 +39,7 @@ paths:
           required: true
           schema:
             type: string
-            format: uuid
+            format: int32
       responses:
         200:
           description: OK
@@ -52,26 +52,22 @@ components:
   schemas:
     UserDTO:
       type: object
-      description: Data element for User
+      description: User Entity
       required:
         - email
       properties:
         id:
           type: string
-          format: uuid
+          format: int32
         email:
           type: string
-        firstName:
+          minLength: 4
+          maxLength: 128
+        login:
           type: string
           minLength: 3
-        lastName:
+          maxLength: 32
+        password:
           type: string
-
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-          format: int32
-        message:
-          type: string
+          minLength: 8
+          maxLength: 32
