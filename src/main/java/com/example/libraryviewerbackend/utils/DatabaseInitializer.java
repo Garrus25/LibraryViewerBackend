@@ -1,13 +1,9 @@
 package com.example.libraryviewerbackend.utils;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.context.annotation.Configuration;
-
 import java.sql.*;
 
 
-@Configuration
 @Slf4j
 public class DatabaseInitializer{
     private static final String CHECK_IF_DATABASE_EXISTS_QUERY = "SELECT 1 FROM pg_catalog.pg_database WHERE lower(datname) = lower('libraryviewerdb')";
