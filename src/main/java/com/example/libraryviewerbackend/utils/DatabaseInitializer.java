@@ -9,12 +9,13 @@ import java.sql.*;
 
 @Configuration
 @Slf4j
-public class DatabaseInitializer implements InitializingBean {
+public class DatabaseInitializer{
     private static final String CHECK_IF_DATABASE_EXISTS_QUERY = "SELECT 1 FROM pg_catalog.pg_database WHERE lower(datname) = lower('libraryviewerdb')";
     private static final String CREATE_DATABASE_QUERY = "CREATE DATABASE libraryviewerdb";
 
-    @Override
-    public void afterPropertiesSet(){
+    private DatabaseInitializer(){}
+
+    public static void initializeDatabase(){
         try {
             Connection connection = DriverManager.getConnection(DatabaseCredentialsProvider.getUrl(),
                     DatabaseCredentialsProvider.getLogin(), DatabaseCredentialsProvider.getPassword());
