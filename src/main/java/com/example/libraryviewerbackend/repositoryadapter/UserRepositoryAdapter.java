@@ -27,4 +27,8 @@ public class UserRepositoryAdapter {
     public void deleteUserById(Integer id) {
         userRepository.deleteById(id);
     }
+
+    public long getMaxId() {
+        return userRepository.getMaxId();
+    }
 }

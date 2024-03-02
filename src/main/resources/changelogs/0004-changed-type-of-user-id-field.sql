@@ -1,0 +1,1 @@
+alter table users alter column user_id type integer;
