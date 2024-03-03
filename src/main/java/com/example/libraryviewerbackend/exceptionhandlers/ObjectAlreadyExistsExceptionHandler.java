@@ -13,7 +13,7 @@ import java.util.List;
 @ControllerAdvice
 public class ObjectAlreadyExistsExceptionHandler {
     @ExceptionHandler({ ObjectAlreadyExistsException.class })
-    public ResponseEntity<Object> handleAccessDeniedException(ObjectAlreadyExistsException ex) {
+    public ResponseEntity<Object> handleException(ObjectAlreadyExistsException ex) {
         return new ResponseEntity<>(
                 new ApiErrorResponse(HttpStatus.CONFLICT,
                         List.of(String.format(ex.getMessage(), ex.getId())),
