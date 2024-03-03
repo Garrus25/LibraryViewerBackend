@@ -1,7 +1,9 @@
 package com.example.libraryviewerbackend.service;
 
 import com.example.libraryviewerbackend.exceptions.ObjectAlreadyExistsException;
+import com.example.libraryviewerbackend.exceptions.ObjectNotFoundException;
 import com.example.libraryviewerbackend.exceptions.PathAndBodyIdMismatchException;
+import com.example.libraryviewerbackend.model.User;
 import com.example.libraryviewerbackend.modelmapper.UserModelMapper;
 import com.example.libraryviewerbackend.repositoryadapter.UserRepositoryAdapter;
 import com.example.libraryviewerbackend.utils.UserMessages;
@@ -23,7 +25,11 @@ public class UserService {
 
     public UserDTO saveUser(UserDTO user) {
         if (user.getId() == null) {
-            user.setId(Math.toIntExact(userRepositoryAdapter.getMaxId() + 1));
+            if (userRepositoryAdapter.getMaxId().isPresent()) {
+                user.setId(Math.toIntExact(userRepositoryAdapter.getMaxId().get() + 1));
+            } else {
+                user.setId(1);
+            }
         }
         if (userRepositoryAdapter.getUserById(user.getId()) != null) {
             throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, user.getId());
@@ -42,7 +48,11 @@ public class UserService {
     }
 
     public UserDTO getUserById(Integer id) {
-        return UserModelMapper.INSTANCE.toDTO(userRepositoryAdapter.getUserById(id));
+        UserDTO userDTO = UserModelMapper.INSTANCE.toDTO(userRepositoryAdapter.getUserById(id));
+        if (userDTO == null) {
+            throw new ObjectNotFoundException(UserMessages.OBJECT_NOT_FOUND_ERROR_MESSAGE, id, User.class);
+        }
+        return userDTO;
     }
 
     public List<UserDTO> getAllUsers() {
@@ -53,6 +63,9 @@ public class UserService {
     }
 
     public void deleteUserById(Integer id) {
+        if (Objects.isNull(userRepositoryAdapter.getUserById(id))) {
+            throw new ObjectNotFoundException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, id, User.class);
+        }
         userRepositoryAdapter.deleteUserById(id);
     }
 }

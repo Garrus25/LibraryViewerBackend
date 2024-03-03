@@ -4,6 +4,8 @@ import com.example.libraryviewerbackend.model.User;
 import com.example.libraryviewerbackend.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class UserRepositoryAdapter {
     UserRepository userRepository;
@@ -28,7 +30,7 @@ public class UserRepositoryAdapter {
         userRepository.deleteById(id);
     }
 
-    public long getMaxId() {
+    public Optional<Long> getMaxId() {
         return userRepository.getMaxId();
     }
 }

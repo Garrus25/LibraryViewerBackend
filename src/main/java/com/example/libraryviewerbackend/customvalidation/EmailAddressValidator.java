@@ -3,6 +3,7 @@ package com.example.libraryviewerbackend.customvalidation;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class EmailAddressValidator implements
@@ -15,7 +16,7 @@ public class EmailAddressValidator implements
 
     @Override
     public boolean isValid(String emailAddress, ConstraintValidatorContext cxt) {
-        return Pattern.compile(EMAIL_REGULAR_EXPRESSION)
+        return !Objects.isNull(emailAddress) && Pattern.compile(EMAIL_REGULAR_EXPRESSION)
                 .matcher(emailAddress)
                 .matches();
     }
