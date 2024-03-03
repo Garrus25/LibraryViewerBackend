@@ -1,9 +1,9 @@
 openapi: "3.0.1"
 
 info:
-  title: "User"
-  version: "1"
-  description: User API
+  title: "Library Viewer Backend"
+  version: "0.0.1"
+  description: API for the Library Viewer Application
 
 servers:
   - url: http://localhost:8080/api
@@ -13,8 +13,71 @@ paths:
 
   /user:
     post:
-      summary: Save User
-      operationId: saveUser
+      summary: Create User object with generated ID
+      operationId: createUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDTO'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+        400:
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                type: string
+
+  /user/{id}:
+    get:
+      summary: Find User by Id
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          description: Unique Id of an User
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDTO'
+    delete:
+        summary: Delete User by Id
+        operationId: deleteUserById
+        parameters:
+          - name: id
+            in: path
+            description: Unique Id of an User
+            required: true
+            schema:
+                type: integer
+                format: int32
+        responses:
+            204:
+              description: OK
+    post:
+      summary: Create User object specified ID
+      operationId: createUserWithId
+      parameters:
+        - name: id
+          in: path
+          description: Unique Id of an User
+          required: true
+          schema:
+            type: integer
+            format: int32
       requestBody:
         content:
           application/json:
@@ -28,50 +91,38 @@ paths:
               schema:
                 $ref: '#/components/schemas/UserDTO'
 
-  /user/{id}:
+  /user/all:
     get:
-      summary: Get User By Id
-      operationId: getUserById
-      parameters:
-        - name: id
-          in: path
-          description: Unique Id of an User
-          required: true
-          schema:
-            type: string
-            format: uuid
+      summary: Get all Users
+      operationId: getAllUsers
       responses:
         200:
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UserDTO'
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDTO'
 
 components:
   schemas:
     UserDTO:
       type: object
-      description: Data element for User
-      required:
-        - email
+      description: User Entity
       properties:
         id:
-          type: string
-          format: uuid
-        email:
-          type: string
-        firstName:
-          type: string
-          minLength: 3
-        lastName:
-          type: string
-
-    Error:
-      type: object
-      properties:
-        code:
           type: integer
           format: int32
-        message:
+        username:
+          type: string
+          x-field-extra-annotation: '@Size(min = 8, max = 32, message = "length must be 8 to 32 characters") 
+          @NotNull()'
+        password:
+          type: string
+          x-field-extra-annotation: '@Size(min = 8, max = 32, message = "length must be 8 to 32 characters") 
+          @NotNull()'
+        email:
+          x-field-extra-annotation: '@NotNull()
+          @com.example.libraryviewerbackend.customvalidation.EmailAddress()'
           type: string

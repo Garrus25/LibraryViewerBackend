@@ -9,5 +9,6 @@
             http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
             http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-    <includeAll path="src/main/resources/changelogs/"/>
+    <!--files are executed in the alphabetical order-->
+    <includeAll path="changelogs/"/>
 </databaseChangeLog>

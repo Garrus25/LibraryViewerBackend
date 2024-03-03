@@ -14,7 +14,7 @@ public class DatabaseCredentialsProvider {
     private static String password;
 
     private static void initializeDataFromEnvironmentVariables() {
-        url = System.getenv("DATABASE_URL");
+        url = System.getenv("DATABASE_SERVER_URL");
         login = System.getenv("DATABASE_LOGIN");
         password = System.getenv("DATABASE_PASSWORD");
     }
