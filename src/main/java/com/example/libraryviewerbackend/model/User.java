@@ -2,22 +2,20 @@ package com.example.libraryviewerbackend.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+import java.io.Serializable;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name="users")
-public class User {
+@Data
+public class User implements Serializable {
     @Id
     @Column(name="user_id")
     private Integer id;
     private String username;
     private String password;
     private String email;
-    //TODO do dodania constrainy 1;1 jak na wygenerowanym DTO
 }

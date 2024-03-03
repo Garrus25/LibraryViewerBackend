@@ -1,25 +1,28 @@
 package com.example.libraryviewerbackend.repositoryadapter;
 
 import com.example.libraryviewerbackend.model.User;
+import com.example.libraryviewerbackend.repository.UserCriteriaQueries;
 import com.example.libraryviewerbackend.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
 
 @Component
-public class UserRepositoryAdapter {
+public class UserDataAccessAdapter {
     UserRepository userRepository;
 
-    public UserRepositoryAdapter(UserRepository userRepository) {
+    UserCriteriaQueries userCriteriaQueries;
+
+    public UserDataAccessAdapter(UserRepository userRepository, UserCriteriaQueries userCriteriaQueries) {
         this.userRepository = userRepository;
+        this.userCriteriaQueries = userCriteriaQueries;
     }
 
     public User getUserById(Integer id) {
-        return userRepository.getUserById(id);
+        return userCriteriaQueries.getUserById(id);
     }
 
     public Iterable<User> getAllUsers() {
-        return userRepository.findAll();
+        return userCriteriaQueries.getAllUsers();
     }
 
     public User saveUser(User user) {
@@ -30,7 +33,7 @@ public class UserRepositoryAdapter {
         userRepository.deleteById(id);
     }
 
-    public Optional<Long> getMaxId() {
-        return userRepository.getMaxId();
+    public Integer getMaxId() {
+        return userCriteriaQueries.getMaxId();
     }
 }
