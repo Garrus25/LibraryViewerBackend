@@ -20,6 +20,4 @@ public class User {
     private String password;
     private String email;
     //TODO do dodania constrainy 1;1 jak na wygenerowanym DTO
-    //TODO do rozdzielenia pliki schemy tak jak u damiana w:
-    // https://github.com/DGolonka/activity-monitor-spec/blob/master/activity-monitor-spec/v1/openapi.yaml
 }

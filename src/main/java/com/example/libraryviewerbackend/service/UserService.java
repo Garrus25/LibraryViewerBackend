@@ -25,10 +25,10 @@ public class UserService {
 
     public UserDTO saveUser(UserDTO user) {
         if (user.getId() == null) {
-            if (userRepositoryAdapter.getMaxId().isEmpty()) {
-                user.setId(1);
+            if (userRepositoryAdapter.getMaxId().isPresent()) {
+                user.setId(Math.toIntExact(userRepositoryAdapter.getMaxId().get() + 1));
             } else {
-                user.setId(Math.toIntExact(1 + userRepositoryAdapter.getMaxId().get() + 1));
+                user.setId(1);
             }
         }
         if (userRepositoryAdapter.getUserById(user.getId()) != null) {
@@ -63,6 +63,9 @@ public class UserService {
     }
 
     public void deleteUserById(Integer id) {
+        if (Objects.isNull(userRepositoryAdapter.getUserById(id))) {
+            throw new ObjectNotFoundException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, id, User.class);
+        }
         userRepositoryAdapter.deleteUserById(id);
     }
 }

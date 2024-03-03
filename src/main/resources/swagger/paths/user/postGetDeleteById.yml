@@ -1,0 +1,57 @@
+post:
+  summary: Create User object specified ID
+  operationId: createUserWithId
+  parameters:
+    - name: id
+      in: path
+      description: Unique Id of an User
+      required: true
+      schema:
+        type: integer
+        format: int32
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/user.yml#/components/schemas/UserDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/user.yml#/components/schemas/UserDTO'
+
+get:
+  summary: Find User by Id
+  operationId: getUserById
+  parameters:
+    - name: id
+      in: path
+      description: Unique Id of an User
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/user.yml#/components/schemas/UserDTO'
+
+delete:
+  summary: Delete User by Id
+  operationId: deleteUserById
+  parameters:
+    - name: id
+      in: path
+      description: Unique Id of an User
+      required: true
+      schema:
+        type: integer
+        format: int32
+  responses:
+    204:
+      description: OK
