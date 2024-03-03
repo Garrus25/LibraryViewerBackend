@@ -7,16 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @ControllerAdvice
 public class PathAndBodyIdMismatchExceptionHandler {
     @ExceptionHandler({ PathAndBodyIdMismatchException.class })
-    public ResponseEntity<Object> handleAccessDeniedException(Exception ex) {
-        List<String> errors = new ArrayList<>();
-        errors.add(ex.getMessage());
+    public ResponseEntity<Object> handleAccessDeniedException(PathAndBodyIdMismatchException ex) {
         return new ResponseEntity<>(
-                errors, new HttpHeaders(), HttpStatus.BAD_REQUEST);
+                new ApiErrorResponse(HttpStatus.BAD_REQUEST,
+                        List.of(String.format(ex.getMessage(), ex.getPathId(), ex.getBodyId())),
+                        LocalDateTime.now()),
+                new HttpHeaders(),
+                HttpStatus.BAD_REQUEST);
     }
 }

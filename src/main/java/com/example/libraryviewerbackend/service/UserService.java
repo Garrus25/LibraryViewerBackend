@@ -26,17 +26,17 @@ public class UserService {
             user.setId(Math.toIntExact(userRepositoryAdapter.getMaxId() + 1));
         }
         if (userRepositoryAdapter.getUserById(user.getId()) != null) {
-            throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE);
+            throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, user.getId());
         }
         return UserModelMapper.INSTANCE.toDTO(userRepositoryAdapter.saveUser(UserModelMapper.INSTANCE.toEntity(user)));
     }
 
-    public UserDTO saveUserWithId(UserDTO user, Integer id) {
-        if (!Objects.equals(user.getId(), id)) {
-            throw new PathAndBodyIdMismatchException(UserMessages.ID_MISMATCH_IN_PATH_AND_BODY_MESSAGE);
+    public UserDTO saveUserWithId(UserDTO user, Integer pathId) {
+        if (!Objects.equals(user.getId(), pathId)) {
+            throw new PathAndBodyIdMismatchException(UserMessages.ID_MISMATCH_IN_PATH_AND_BODY_MESSAGE, pathId, user.getId());
         }
         if (userRepositoryAdapter.getUserById(user.getId()) != null) {
-            throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE);
+            throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, user.getId());
         }
         return UserModelMapper.INSTANCE.toDTO(userRepositoryAdapter.saveUser(UserModelMapper.INSTANCE.toEntity(user)));
     }

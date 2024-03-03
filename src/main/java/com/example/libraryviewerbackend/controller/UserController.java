@@ -17,7 +17,6 @@ public class UserController extends UserApiController {
     public UserController(UserService userService) {
         super(null);
         //TODO co zrobić z tym konstruktorem?
-        //TODO pełen CRUD dla usera
         //TODO wrzucenie postgresa na dockera
         this.userService = userService;
     }

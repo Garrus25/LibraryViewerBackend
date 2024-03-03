@@ -7,16 +7,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @ControllerAdvice
 public class ObjectAlreadyExistsExceptionHandler {
     @ExceptionHandler({ ObjectAlreadyExistsException.class })
-    public ResponseEntity<Object> handleAccessDeniedException(Exception ex) {
-        List<String> errors = new ArrayList<>();
-        errors.add(ex.getMessage());
+    public ResponseEntity<Object> handleAccessDeniedException(ObjectAlreadyExistsException ex) {
         return new ResponseEntity<>(
-                errors, new HttpHeaders(), HttpStatus.CONFLICT);
+                new ApiErrorResponse(HttpStatus.CONFLICT,
+                        List.of(String.format(ex.getMessage(), ex.getId())),
+                        LocalDateTime.now()),
+                new HttpHeaders(),
+                HttpStatus.CONFLICT);
     }
 }
