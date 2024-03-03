@@ -125,6 +125,13 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.4.2.Final</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <version>6.1.7.Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>

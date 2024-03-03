@@ -1,6 +1,7 @@
 package com.example.libraryviewerbackend.repository;
 
 import com.example.libraryviewerbackend.model.User;
+import com.example.libraryviewerbackend.model.User_;
 import com.example.libraryviewerbackend.utils.HibernateUtil;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
@@ -29,7 +30,7 @@ public class UserCriteriaQueries {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<User> cr = cb.createQuery(User.class);
         Root<User> root = cr.from(User.class);
-        cr.select(root).where(cb.equal(root.get("id"), userId));
+        cr.select(root).where(cb.equal(root.get(User_.ID), userId));
         Query<User> query = session.createQuery(cr);
         return query.getResultList().isEmpty() ? null : query.getSingleResult();
     }
@@ -39,7 +40,7 @@ public class UserCriteriaQueries {
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Integer> cr = cb.createQuery(Integer.class);
         Root<User> root = cr.from(User.class);
-        cr.select(cb.max(root.get("id")));
+        cr.select(cb.max(root.get(User_.ID)));
         Query<Integer> query = session.createQuery(cr);
 
         if (query.getResultList().isEmpty()){

@@ -15,10 +15,6 @@ public class HibernateUtil {
         return sf.openSession();
     }
 
-    public static SessionFactory getHibernateSessionFactory() {
-        return getConfigurationFile().buildSessionFactory();
-    }
-
     private static Configuration getConfigurationFile() {
         Configuration configuration = new Configuration().configure("criteria.cfg.xml");
         configuration.setProperty("hibernate.connection.url", DatabaseCredentialsProvider.getUrl() + DATABASE_NAME);
