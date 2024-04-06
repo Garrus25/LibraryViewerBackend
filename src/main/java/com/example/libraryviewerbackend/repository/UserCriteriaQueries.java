@@ -2,7 +2,7 @@ package com.example.libraryviewerbackend.repository;
 
 import com.example.libraryviewerbackend.model.User;
 import com.example.libraryviewerbackend.model.User_;
-import com.example.libraryviewerbackend.utils.HibernateUtil;
+import com.example.libraryviewerbackend.utils.HibernateSessionProvider;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -16,7 +16,7 @@ import java.util.List;
 public class UserCriteriaQueries {
 
     public List<User> getAllUsers() {
-        Session session = HibernateUtil.getHibernateSession();
+        Session session = HibernateSessionProvider.getHibernateSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<User> cr = cb.createQuery(User.class);
         Root<User> root = cr.from(User.class);
@@ -26,7 +26,7 @@ public class UserCriteriaQueries {
     }
 
     public User getUserById(Integer userId){
-        Session session = HibernateUtil.getHibernateSession();
+        Session session = HibernateSessionProvider.getHibernateSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<User> cr = cb.createQuery(User.class);
         Root<User> root = cr.from(User.class);
@@ -36,7 +36,7 @@ public class UserCriteriaQueries {
     }
 
     public Integer getMaxId() {
-        Session session = HibernateUtil.getHibernateSession();
+        Session session = HibernateSessionProvider.getHibernateSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<Integer> cr = cb.createQuery(Integer.class);
         Root<User> root = cr.from(User.class);
@@ -48,4 +48,6 @@ public class UserCriteriaQueries {
         }
         return query.getSingleResult();
     }
+
+    // dorzucić interfejs
 }
