@@ -1,0 +1,10 @@
+components:
+  schemas:
+    SecurityEntity:
+      type: object
+      description: Security Entity
+      properties:
+        token:
+          type: string
+        refreshToken:
+          type: string

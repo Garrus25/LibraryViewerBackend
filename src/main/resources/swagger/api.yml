@@ -11,10 +11,10 @@ servers:
 
 paths:
   /user:
-    $ref: 'paths/user/postWithGeneratedId.yml'
-
-  /user/{id}:
-    $ref: 'paths/user/postGetDeleteById.yml'
+    $ref: 'paths/user/createUser.yml'
 
   /user/all:
     $ref: 'paths/user/getAllUsers.yml'
+
+  /user/credentials:
+    $ref: 'paths/user/checkUserCredentials.yml'

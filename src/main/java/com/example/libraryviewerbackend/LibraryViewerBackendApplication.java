@@ -11,5 +11,4 @@ public class LibraryViewerBackendApplication {
         DatabaseInitializer.initializeDatabase();
         SpringApplication.run(LibraryViewerBackendApplication.class, args);
     }
-
 }
