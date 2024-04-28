@@ -4,9 +4,6 @@ components:
       type: object
       description: User Entity
       properties:
-        id:
-          type: integer
-          format: int32
         username:
           type: string
           x-field-extra-annotation: '@Size(min = 8, max = 32, message = "length must be 8 to 32 characters") 

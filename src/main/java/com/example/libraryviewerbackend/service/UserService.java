@@ -1,70 +1,48 @@
 package com.example.libraryviewerbackend.service;
 
-import com.example.libraryviewerbackend.exceptions.ObjectAlreadyExistsException;
-import com.example.libraryviewerbackend.exceptions.ObjectNotFoundException;
-import com.example.libraryviewerbackend.exceptions.PathAndBodyIdMismatchException;
-import com.example.libraryviewerbackend.model.User;
 import com.example.libraryviewerbackend.modelmapper.UserModelMapper;
-import com.example.libraryviewerbackend.repositoryadapter.UserDataAccessAdapter;
-import com.example.libraryviewerbackend.utils.UserMessages;
+import com.example.libraryviewerbackend.security.KeycloakHelper;
+import com.openapi.gen.springboot.dto.SecurityEntity;
+import com.openapi.gen.springboot.dto.UserCredentialsDTO;
 import com.openapi.gen.springboot.dto.UserDTO;
+import jakarta.ws.rs.core.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.StreamSupport;
 
 @Component
 public class UserService {
 
-    UserDataAccessAdapter userDataAccessAdapter;
+    KeycloakHelper keycloakHelper;
 
-    public UserService(UserDataAccessAdapter userDataAccessAdapter) {
-        this.userDataAccessAdapter = userDataAccessAdapter;
+    public UserService(KeycloakHelper keycloakHelper) {
+        this.keycloakHelper = keycloakHelper;
     }
 
-    public UserDTO saveUser(UserDTO user) {
-        if (user.getId() == null) {
-            if (userDataAccessAdapter.getMaxId() > 0) {
-                user.setId(Math.toIntExact(userDataAccessAdapter.getMaxId() + 1));
-            } else {
-                user.setId(1);
+    public ResponseEntity<UserDTO> saveUser(UserDTO user) {
+        try (Response response = keycloakHelper.createUser(user)){
+            if (response.getStatus() == HttpStatus.CONFLICT.value()) {
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
             }
         }
-        if (userDataAccessAdapter.getUserById(user.getId()) != null) {
-            throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, user.getId());
-        }
-        return UserModelMapper.INSTANCE.toDTO(userDataAccessAdapter.saveUser(UserModelMapper.INSTANCE.toEntity(user)));
+        return ResponseEntity.ok(user);
     }
 
-    public UserDTO saveUserWithId(UserDTO user, Integer pathId) {
-        if (!Objects.equals(user.getId(), pathId)) {
-            throw new PathAndBodyIdMismatchException(UserMessages.ID_MISMATCH_IN_PATH_AND_BODY_MESSAGE, pathId, user.getId());
-        }
-        if (userDataAccessAdapter.getUserById(user.getId()) != null) {
-            throw new ObjectAlreadyExistsException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, user.getId());
-        }
-        return UserModelMapper.INSTANCE.toDTO(userDataAccessAdapter.saveUser(UserModelMapper.INSTANCE.toEntity(user)));
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        return ResponseEntity.ok((keycloakHelper.getAllUsers()
+                .stream()
+                .map(UserModelMapper::toDto)
+                .toList()));
     }
 
-    public UserDTO getUserById(Integer id) {
-        UserDTO userDTO = UserModelMapper.INSTANCE.toDTO(userDataAccessAdapter.getUserById(id));
-        if (userDTO == null) {
-            throw new ObjectNotFoundException(UserMessages.OBJECT_NOT_FOUND_ERROR_MESSAGE, id, User.class);
+    public ResponseEntity<SecurityEntity> checkUserCredentials(UserCredentialsDTO userCredentialsDTO) {
+        SecurityEntity securityEntity = keycloakHelper.checkUserCredentials(userCredentialsDTO);
+        if (!Objects.isNull(securityEntity)) {
+            return ResponseEntity.status(HttpStatus.OK).body(securityEntity);
         }
-        return userDTO;
-    }
-
-    public List<UserDTO> getAllUsers() {
-       return StreamSupport.stream(userDataAccessAdapter.getAllUsers().spliterator(), false)
-                .map(UserModelMapper.INSTANCE::toDTO)
-                .toList();
-    }
-
-    public void deleteUserById(Integer id) {
-        if (Objects.isNull(userDataAccessAdapter.getUserById(id))) {
-            throw new ObjectNotFoundException(UserMessages.USER_WITH_SPECIFIED_ID_ALREADY_EXISTS_MESSAGE, id, User.class);
-        }
-        userDataAccessAdapter.deleteUserById(id);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }
