@@ -18,3 +18,9 @@ paths:
 
   /user/credentials:
     $ref: 'paths/user/checkUserCredentials.yml'
+
+  /user/email-confirmed:
+    $ref: 'paths/user/emailConfirmed.yml'
+
+  /user/resend-email:
+    $ref: 'paths/user/resendConfirmationEmail.yml'

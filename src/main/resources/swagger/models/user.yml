@@ -16,3 +16,5 @@ components:
           x-field-extra-annotation: '@NotNull()
           @com.example.libraryviewerbackend.customvalidation.EmailAddress()'
           type: string
+        id:
+          type: string
