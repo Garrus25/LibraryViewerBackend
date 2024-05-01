@@ -14,6 +14,7 @@ public class UserModelMapper {
         UserDTO userDTO = new UserDTO();
         userDTO.setUsername(userRepresentation.getUsername());
         userDTO.setEmail(userRepresentation.getEmail());
+        userDTO.setId(userRepresentation.getId());
         return userDTO;
     }
 
