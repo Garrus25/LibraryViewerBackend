@@ -10,5 +10,5 @@
             http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
     <!--files are executed in the alphabetical order-->
-<!--    <includeAll path="changelogs/"/>-->
+    <includeAll path="changelogs/"/>
 </databaseChangeLog>

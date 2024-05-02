@@ -1,6 +1,8 @@
 package com.example.libraryviewerbackend.service;
 
+import com.example.libraryviewerbackend.model.User;
 import com.example.libraryviewerbackend.modelmapper.UserModelMapper;
+import com.example.libraryviewerbackend.repositoryadapter.UserRepositoryAdapter;
 import com.example.libraryviewerbackend.security.KeycloakHelper;
 import com.openapi.gen.springboot.dto.SecurityEntity;
 import com.openapi.gen.springboot.dto.UserCredentialsDTO;
@@ -19,26 +21,30 @@ public class UserService implements IUserService {
 
     KeycloakHelper keycloakHelper;
 
-    public UserService(KeycloakHelper keycloakHelper) {
+    UserRepositoryAdapter userRepositoryAdapter;
+
+    public UserService(KeycloakHelper keycloakHelper, UserRepositoryAdapter userRepositoryAdapter) {
         this.keycloakHelper = keycloakHelper;
+        this.userRepositoryAdapter = userRepositoryAdapter;
     }
 
     @Override
-    public ResponseEntity<UserDTO> saveUser(UserDTO user) {
-        try (Response response = keycloakHelper.createUser(user)){
+    public ResponseEntity<UserDTO> saveUser(UserDTO userDTO) {
+        User user;
+        try (Response response = keycloakHelper.createUser(userDTO)) {
             if (response.getStatus() == HttpStatus.CONFLICT.value()) {
                 return ResponseEntity.status(HttpStatus.CONFLICT).body(null);
+            } else {
+                userDTO.setId(response.getLocation().getPath().replaceAll(".*/([^/]+)$", "$1"));
+                user = userRepositoryAdapter.saveUser(UserModelMapper.INSTANCE.toEntity(userDTO));
             }
         }
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(UserModelMapper.INSTANCE.toDTO(user));
     }
 
     @Override
     public ResponseEntity<List<UserDTO>> getAllUsers() {
-        return ResponseEntity.ok((keycloakHelper.getAllUsers()
-                .stream()
-                .map(UserModelMapper::toDto)
-                .toList()));
+        return ResponseEntity.ok(userRepositoryAdapter.findAll().stream().map(UserModelMapper.INSTANCE::toDTO).toList());
     }
 
     @Override

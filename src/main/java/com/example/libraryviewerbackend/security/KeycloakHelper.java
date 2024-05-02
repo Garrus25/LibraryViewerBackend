@@ -1,6 +1,6 @@
 package com.example.libraryviewerbackend.security;
 
-import com.example.libraryviewerbackend.modelmapper.UserModelMapper;
+import com.example.libraryviewerbackend.modelmapper.KeycloakUserModelMapper;
 import com.example.libraryviewerbackend.utils.KeycloakCredentialsProvider;
 import com.openapi.gen.springboot.dto.SecurityEntity;
 import com.openapi.gen.springboot.dto.UserCredentialsDTO;
@@ -70,7 +70,7 @@ public class KeycloakHelper implements IKeycloakHelper {
 
     @Override
     public Response createUser(UserDTO userDTO){
-        UserRepresentation userRepresentation = UserModelMapper.toEntity(userDTO);
+        UserRepresentation userRepresentation = KeycloakUserModelMapper.toEntity(userDTO);
         userRepresentation.setEnabled(true);
         userRepresentation.setRealmRoles(List.of("user"));
 
