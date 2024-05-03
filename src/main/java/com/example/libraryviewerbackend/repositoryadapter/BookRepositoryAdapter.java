@@ -18,11 +18,17 @@ public class BookRepositoryAdapter {
         return bookRepository.save(book);
     }
 
-    public List<Book> getAllBooks(){
+    public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
-    public Book getBookById(String id){
+    public Book getBookById(String id) {
         return bookRepository.findById(id).orElse(null);
     }
+
+    public void deleteBookById(String id) {
+        bookRepository.deleteById(id);
+    }
+
+
 }

@@ -1,6 +1,6 @@
 package com.example.libraryviewerbackend.exceptionhandlers;
 
-import com.example.libraryviewerbackend.exceptions.ObjectAlreadyExistsException;
+import com.example.libraryviewerbackend.exceptions.CoverAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +11,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @ControllerAdvice
-public class ObjectAlreadyExistsExceptionHandler {
-    @ExceptionHandler({ObjectAlreadyExistsException.class})
-    public ResponseEntity<Object> handleException(ObjectAlreadyExistsException ex) {
+public class CoverAccessExceptionHandler {
+    @ExceptionHandler({CoverAccessException.class})
+    public ResponseEntity<Object> handleException(CoverAccessException ex) {
         return new ResponseEntity<>(
-                new ApiErrorResponse(HttpStatus.CONFLICT,
-                        List.of(String.format(ex.getMessage(), ex.getId())),
+                new ApiErrorResponse(HttpStatus.BAD_REQUEST,
+                        List.of(ex.getMessage()),
                         LocalDateTime.now()),
                 new HttpHeaders(),
-                HttpStatus.CONFLICT);
+                HttpStatus.BAD_REQUEST);
     }
 }

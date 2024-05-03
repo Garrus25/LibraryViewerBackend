@@ -29,4 +29,10 @@ paths:
     $ref: 'paths/book/getAllBooks.yml'
 
   /book/{id}:
-    $ref: 'paths/book/bookAddGetById.yml'
+    $ref: 'paths/book/getDeleteBook.yml'
+
+  /book:
+    $ref: 'paths/book/addBook.yml'
+
+  /book/cover/{filename}:
+    $ref: 'paths/book/getBookCover.yml'

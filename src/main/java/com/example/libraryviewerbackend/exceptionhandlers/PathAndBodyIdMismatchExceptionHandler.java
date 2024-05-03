@@ -12,7 +12,7 @@ import java.util.List;
 
 @ControllerAdvice
 public class PathAndBodyIdMismatchExceptionHandler {
-    @ExceptionHandler({ PathAndBodyIdMismatchException.class })
+    @ExceptionHandler({PathAndBodyIdMismatchException.class})
     public ResponseEntity<Object> handleException(PathAndBodyIdMismatchException ex) {
         return new ResponseEntity<>(
                 new ApiErrorResponse(HttpStatus.BAD_REQUEST,

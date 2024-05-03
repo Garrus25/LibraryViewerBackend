@@ -14,4 +14,6 @@ interface BaseRepository<T, E> extends Repository<T, E> {
     <S extends T> S save(S entity);
 
     List<T> findAll();
+
+    void deleteById(E id);
 }

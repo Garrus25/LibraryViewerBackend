@@ -28,6 +28,7 @@ public class KeycloakCredentialsProvider {
         initializeDataFromEnvironmentVariables();
     }
 
-    private KeycloakCredentialsProvider(){}
+    private KeycloakCredentialsProvider() {
+    }
 
 }

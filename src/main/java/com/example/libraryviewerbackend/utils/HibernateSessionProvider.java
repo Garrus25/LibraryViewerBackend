@@ -7,7 +7,9 @@ import org.hibernate.cfg.Configuration;
 
 public class HibernateSessionProvider {
 
-    private HibernateSessionProvider() {}
+    private HibernateSessionProvider() {
+    }
+
     private static final String DATABASE_NAME = "libraryviewerdb";
 
     public static Session getHibernateSession() {

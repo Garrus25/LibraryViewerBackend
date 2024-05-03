@@ -48,7 +48,7 @@ public class LiquibasePropertiesFileGenerator implements InitializingBean {
 
     private void insertPropertiesIntoFile() {
         File file = new File(PROPERTY_FILE_LOCATION.toString());
-        try (FileWriter fileWriter = new FileWriter(file)){
+        try (FileWriter fileWriter = new FileWriter(file)) {
             fileWriter.write(String.format("changeLogFile:%s%n", CHANGE_LOG_FILE_NAME));
             fileWriter.write(String.format("url:%s%n", System.getenv(LIQUIBASE_URL_VARIABLE)));
             fileWriter.write(String.format("username:%s%n", System.getenv(LIQUIBASE_USERNAME_VARIABLE)));

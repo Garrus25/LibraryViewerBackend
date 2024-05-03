@@ -13,7 +13,7 @@ import java.util.List;
 
 @ControllerAdvice
 public class ObjectNotFoundExceptionHandler {
-    @ExceptionHandler({ ObjectNotFoundException.class })
+    @ExceptionHandler({ObjectNotFoundException.class})
     public ResponseEntity<Object> handleException(ObjectNotFoundException ex) {
         return new ResponseEntity<>(
                 new ApiErrorResponse(HttpStatus.NOT_FOUND,

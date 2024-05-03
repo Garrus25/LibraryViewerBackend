@@ -10,4 +10,6 @@ public interface IBookService {
     List<BookDTO> getAllBooks();
 
     BookDTO getBookById(String id);
+
+    void deleteBookById(String id);
 }

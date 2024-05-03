@@ -12,7 +12,7 @@ import java.util.List;
 
 @ControllerAdvice
 public class MethodArgumentNotValidExceptionHandler {
-    @ExceptionHandler({ MethodArgumentNotValidException.class })
+    @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseEntity<Object> handleException(MethodArgumentNotValidException ex) {
         List<String> errors = ex.getBindingResult().getFieldErrors().stream()
                 .map(error -> error.getField() + ": " + error.getDefaultMessage())

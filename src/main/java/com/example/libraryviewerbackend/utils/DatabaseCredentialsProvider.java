@@ -23,6 +23,7 @@ public class DatabaseCredentialsProvider {
         initializeDataFromEnvironmentVariables();
     }
 
-    private DatabaseCredentialsProvider(){}
+    private DatabaseCredentialsProvider() {
+    }
 
 }

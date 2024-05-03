@@ -1,0 +1,27 @@
+post:
+  summary: add book to the database
+  operationId: addBook
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/book.yml#/components/schemas/BookDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/book.yml#/components/schemas/BookDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+    409:
+      description: CONFLICT
+      content:
+        application/json:
+          schema:
+            type: string

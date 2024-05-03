@@ -12,7 +12,7 @@ import java.util.List;
 
 @ControllerAdvice
 public class MethodArgumentTypeMismatchExceptionHandler {
-    @ExceptionHandler({ MethodArgumentTypeMismatchException.class })
+    @ExceptionHandler({MethodArgumentTypeMismatchException.class})
     public ResponseEntity<Object> handleException(MethodArgumentTypeMismatchException ex) {
         return new ResponseEntity<>(
                 new ApiErrorResponse(HttpStatus.BAD_REQUEST,

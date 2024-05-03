@@ -18,7 +18,7 @@ public class UserRepositoryAdapter {
         return userRepository.save(user);
     }
 
-    public List<User> findAll(){
+    public List<User> findAll() {
         return userRepository.findAll();
     }
 }
