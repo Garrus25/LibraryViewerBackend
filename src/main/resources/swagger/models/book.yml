@@ -1,0 +1,20 @@
+components:
+  schemas:
+    BookDTO:
+      type: object
+      description: Book Entity
+      properties:
+        isbn:
+          type: string
+          x-field-extra-annotation: '@Size(min = 10, max = 13, message = "incorrect isbn length") 
+          @NotNull()'
+        authorId:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        coverName:
+          type: string
+        publishDate:
+          type: string

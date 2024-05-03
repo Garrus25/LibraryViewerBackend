@@ -4,8 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class ObjectAlreadyExistsException extends RuntimeException {
-    private final Integer id;
-    public ObjectAlreadyExistsException(String message, Integer id) {
+    private final Long id;
+    public ObjectAlreadyExistsException(String message, Long id) {
         super(message);
         this.id = id;
     }

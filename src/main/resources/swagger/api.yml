@@ -24,3 +24,9 @@ paths:
 
   /user/resend-email:
     $ref: 'paths/user/resendConfirmationEmail.yml'
+
+  /book/all:
+    $ref: 'paths/book/getAllBooks.yml'
+
+  /book/{id}:
+    $ref: 'paths/book/bookAddGetById.yml'
