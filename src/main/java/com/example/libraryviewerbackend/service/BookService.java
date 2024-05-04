@@ -78,4 +78,9 @@ public class BookService implements IBookService {
         }
         return resource;
     }
+
+    public List<BookDTO> findNewlyAddedBooks(Integer amount){
+        List<Book> books = bookRepositoryAdapter.findNewlyAddedBooks(amount);
+        return books.stream().map(BookModelMapper.INSTANCE::toDTO).toList();
+    }
 }

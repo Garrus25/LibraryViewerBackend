@@ -30,5 +30,7 @@ public class BookRepositoryAdapter {
         bookRepository.deleteById(id);
     }
 
-
+    public List<Book> findNewlyAddedBooks(Integer amount){
+            return bookRepository.findSpecifiedAmountOfBooksOrderedByAdditionDate(amount);
+    }
 }

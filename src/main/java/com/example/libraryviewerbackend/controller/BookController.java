@@ -44,4 +44,9 @@ public class BookController extends BookApiController {
     public ResponseEntity<Resource> getBookCover(String filename) {
         return ResponseEntity.ok(bookService.getBookCoverWithSpecifiedFilename(filename));
     }
+
+    @Override
+    public ResponseEntity<List<BookDTO>> getNewlyAddedBooks(Integer amount) {
+        return ResponseEntity.ok(bookService.findNewlyAddedBooks(amount));
+    }
 }

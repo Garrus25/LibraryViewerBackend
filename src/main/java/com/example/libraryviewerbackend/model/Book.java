@@ -32,4 +32,7 @@ public class Book implements Serializable {
     @Column(name="publish_date")
     private LocalDate publishDate;
 
+    @Column(name="addition_date")
+    private LocalDate additionDate;
+
 }
