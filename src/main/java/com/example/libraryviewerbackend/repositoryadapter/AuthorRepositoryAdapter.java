@@ -29,4 +29,8 @@ public class AuthorRepositoryAdapter {
     public void deleteAuthorById(Integer id){
         authorRepository.deleteById(id);
     }
+
+    public List<Author> findNewlyAddedAuthors(Integer amount){
+        return authorRepository.findSpecifiedAmountOfAuthorsOrderedByAdditionDate(amount);
+    }
 }

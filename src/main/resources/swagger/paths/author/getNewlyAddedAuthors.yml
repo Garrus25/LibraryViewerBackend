@@ -1,5 +1,5 @@
 get:
-  summary: get specified amount of newly added books
+  summary: get specified amount of newly added authors
   operationId: getNewlyAddedBooks
   parameters:
     - name: amount
@@ -15,7 +15,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../models/book.yml#/components/schemas/BookDTO'
+              $ref: '../../models/author.yml#/components/schemas/AuthorDTO'
     400:
       description: BAD REQUEST
       content:

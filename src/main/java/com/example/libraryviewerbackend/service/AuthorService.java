@@ -63,4 +63,8 @@ public class AuthorService implements IAuthorService, PictureRetriever {
         }
         return resource;
     }
+
+    public List<AuthorDTO> findNewlyAddedAuthors(Integer amount){
+        return authorRepositoryAdapter.findNewlyAddedAuthors(amount).stream().map(AuthorModelMapper.INSTANCE::toDTO).toList();
+    }
 }

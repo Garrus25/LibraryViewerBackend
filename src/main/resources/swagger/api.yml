@@ -51,3 +51,6 @@ paths:
 
   /author/picture/{filename}:
     $ref: 'paths/author/getAuthorPicture.yml'
+
+  /author/newly-added/{amount}:
+    $ref: 'paths/author/getNewlyAddedAuthors.yml'

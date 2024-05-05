@@ -44,4 +44,9 @@ public class AuthorController extends AuthorApiController {
     public ResponseEntity<Resource> getAuthorPicture(String filename) {
         return ResponseEntity.ok(authorService.retrieveStaticPictureData(filename));
     }
+
+    @Override
+    public ResponseEntity<List<AuthorDTO>> getNewlyAddedBooks(Integer amount) {
+        return ResponseEntity.ok(authorService.findNewlyAddedAuthors(amount));
+    }
 }

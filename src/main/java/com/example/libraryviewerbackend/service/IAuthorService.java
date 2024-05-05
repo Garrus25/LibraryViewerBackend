@@ -11,4 +11,5 @@ public interface IAuthorService {
     void deleteAuthorById(Integer id);
     AuthorDTO addAuthor(AuthorDTO authorDTO);
     Resource retrieveStaticPictureData(String filename);
+    List<AuthorDTO> findNewlyAddedAuthors(Integer amount);
 }
