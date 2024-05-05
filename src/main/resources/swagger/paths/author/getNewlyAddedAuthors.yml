@@ -1,6 +1,6 @@
 get:
   summary: get specified amount of newly added authors
-  operationId: getNewlyAddedBooks
+  operationId: getNewlyAddedAuthors
   parameters:
     - name: amount
       in: path
