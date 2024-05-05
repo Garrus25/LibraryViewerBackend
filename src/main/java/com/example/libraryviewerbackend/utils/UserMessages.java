@@ -11,6 +11,7 @@ public final class UserMessages {
     public static final String BOOK_WITH_SPEFICIED_ISBN_NOT_FOUND = "Book with isbn: %d not found";
     public static final String COULD_NOT_FIND_SPECIFIED_FILE = "Could not find specified file on the server";
     public static final String INTERNAL_SERVER_ERROR_WHEN_ACCESSING_COVER = "Internal server error when trying to access the file.";
+    public static final String AUTHOR_WITH_SPECIFIED_ID_NOT_FOUND = "Author with specified id not found";
 
     private UserMessages() {
     }

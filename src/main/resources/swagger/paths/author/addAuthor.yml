@@ -1,0 +1,27 @@
+post:
+  summary: add author to the database
+  operationId: addAuthor
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/author.yml#/components/schemas/AuthorDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/author.yml#/components/schemas/AuthorDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+    409:
+      description: CONFLICT
+      content:
+        application/json:
+          schema:
+            type: string

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class BookService implements IBookService {
+public class BookService implements IBookService, PictureRetriever{
     private final BookRepositoryAdapter bookRepositoryAdapter;
     private final ResourceLoader resourceLoader;
 
@@ -67,8 +67,9 @@ public class BookService implements IBookService {
         bookRepositoryAdapter.deleteBookById(id);
     }
 
-    public Resource getBookCoverWithSpecifiedFilename(String filename) {
-        Resource resource = resourceLoader.getResource("classpath:media/" + filename);
+    @Override
+    public Resource retrieveStaticPictureData(String filename) {
+        Resource resource = resourceLoader.getResource("classpath:media/book-covers/" + filename);
         try {
             if (!resource.exists() || !resource.isReadable()) {
                 throw new CoverAccessException(UserMessages.COULD_NOT_FIND_SPECIFIED_FILE);
@@ -79,6 +80,7 @@ public class BookService implements IBookService {
         return resource;
     }
 
+    @Override
     public List<BookDTO> findNewlyAddedBooks(Integer amount){
         List<Book> books = bookRepositoryAdapter.findNewlyAddedBooks(amount);
         return books.stream().map(BookModelMapper.INSTANCE::toDTO).toList();

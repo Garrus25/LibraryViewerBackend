@@ -39,3 +39,15 @@ paths:
 
   /book/newly-added/{amount}:
     $ref: 'paths/book/getNewlyAddedBooks.yml'
+
+  /author:
+    $ref: 'paths/author/addAuthor.yml'
+
+  /author/{id}:
+    $ref: 'paths/author/getDeleteAuthor.yml'
+
+  /author/all:
+    $ref: 'paths/author/getAllAuthors.yml'
+
+  /author/picture/{filename}:
+    $ref: 'paths/author/getAuthorPicture.yml'
