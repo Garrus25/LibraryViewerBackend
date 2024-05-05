@@ -1,0 +1,1 @@
+ALTER TABLE rate RENAME COLUMN rate_id TO rated_object_id;

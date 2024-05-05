@@ -36,3 +36,27 @@ paths:
 
   /book/cover/{filename}:
     $ref: 'paths/book/getBookCover.yml'
+
+  /book/newly-added/{amount}:
+    $ref: 'paths/book/getNewlyAddedBooks.yml'
+
+  /author:
+    $ref: 'paths/author/addAuthor.yml'
+
+  /author/{id}:
+    $ref: 'paths/author/getDeleteAuthor.yml'
+
+  /author/all:
+    $ref: 'paths/author/getAllAuthors.yml'
+
+  /author/picture/{filename}:
+    $ref: 'paths/author/getAuthorPicture.yml'
+
+  /author/newly-added/{amount}:
+    $ref: 'paths/author/getNewlyAddedAuthors.yml'
+
+  /rate:
+    $ref: 'paths/rate/addGetRate.yml'
+
+  /rate/average/{ratedObjectId}/{rateType}:
+    $ref: 'paths/rate/getAverageRateForObject.yml'

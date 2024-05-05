@@ -1,0 +1,44 @@
+put:
+  summary: add or update rate
+  operationId: addRate
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/rate.yml#/components/schemas/RateDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/rate.yml#/components/schemas/RateDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+
+post:
+  summary: get rate by id
+  operationId: getRateById
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/rateIdentity.yml#/components/schemas/RateIdentityDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/rate.yml#/components/schemas/RateDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+

@@ -1,0 +1,1 @@
+ALTER TABLE rate ALTER COLUMN rated_object_id TYPE varchar(64) USING rated_object_id::varchar;

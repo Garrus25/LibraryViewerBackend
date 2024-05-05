@@ -1,0 +1,1 @@
+ALTER TABLE rate ALTER COLUMN user_id TYPE varchar(64) USING user_id::varchar;

@@ -1,0 +1,12 @@
+get:
+  summary: get all authors
+  operationId: getAllAuthors
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../models/author.yml#/components/schemas/AuthorDTO'

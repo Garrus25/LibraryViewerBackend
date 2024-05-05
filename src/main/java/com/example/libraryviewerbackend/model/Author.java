@@ -14,25 +14,16 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="books")
+@Table(name = "authors")
 @Data
-public class Book implements Serializable {
+public class Author implements Serializable {
     @Id
-    private String isbn;
-
     @Column(name="author_id")
     private Integer authorId;
-
-    private String title;
+    private String name;
+    private String surname;
     private String description;
-
-    @Column(name="cover_name")
-    private String coverName;
-
-    @Column(name="publish_date")
-    private LocalDate publishDate;
-
+    private String pictureName;
     @Column(name="addition_date")
     private LocalDate additionDate;
-
 }
