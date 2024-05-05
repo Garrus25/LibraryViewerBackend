@@ -54,3 +54,9 @@ paths:
 
   /author/newly-added/{amount}:
     $ref: 'paths/author/getNewlyAddedAuthors.yml'
+
+  /rate:
+    $ref: 'paths/rate/addGetRate.yml'
+
+  /rate/average/{ratedObjectId}/{rateType}:
+    $ref: 'paths/rate/getAverageRateForObject.yml'

@@ -1,0 +1,18 @@
+components:
+  schemas:
+    RateIdentityDTO:
+      type: object
+      description: rate identity object
+      properties:
+        ratedObjectId:
+          type: integer
+          x-field-extra-annotation: '@NotNull()'
+        userId:
+          type: string
+          x-field-extra-annotation: '@NotNull()'
+        rateType:
+          type: string
+          enum: ['BOOK', 'AUTHOR', 'REVIEW']
+          x-field-extra-annotation: '@NotNull()'
+
+
