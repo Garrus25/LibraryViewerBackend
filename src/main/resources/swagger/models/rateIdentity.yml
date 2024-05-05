@@ -5,7 +5,7 @@ components:
       description: rate identity object
       properties:
         ratedObjectId:
-          type: integer
+          type: string
           x-field-extra-annotation: '@NotNull()'
         userId:
           type: string

@@ -6,7 +6,7 @@ get:
       in: path
       required: true
       schema:
-        type: integer
+        type: string
     - name: rateType
       in: path
       required: true

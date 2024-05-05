@@ -29,7 +29,7 @@ public class RateController extends RateApiController {
     }
 
     @Override
-    public ResponseEntity<Float> getAverageRateForObject(Integer ratedObjectId, String rateType) {
+    public ResponseEntity<Float> getAverageRateForObject(String ratedObjectId, String rateType) {
         return ResponseEntity.ok(rateService.getAverageRateForObject(ratedObjectId, rateType));
     }
 }

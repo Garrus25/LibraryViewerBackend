@@ -11,7 +11,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 public class RateIdentity implements Serializable {
-    private Integer ratedObjectId;
-    private Integer userId;
+    private String ratedObjectId;
+    private String userId;
     private String rateType;
 }

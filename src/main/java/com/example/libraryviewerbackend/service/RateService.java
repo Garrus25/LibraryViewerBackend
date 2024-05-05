@@ -26,7 +26,7 @@ public class RateService implements IRateService {
     }
 
     @Override
-    public Float getAverageRateForObject(Integer ratedObjectId, String rateType) {
-        return rateRepositoryAdapter.getAverateRate(ratedObjectId, rateType);
+    public Float getAverageRateForObject(String ratedObjectId, String rateType) {
+        return rateRepositoryAdapter.getAverageRate(ratedObjectId, rateType);
     }
 }

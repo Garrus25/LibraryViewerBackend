@@ -21,7 +21,7 @@ public class RateRepositoryAdapter {
         return rateRepository.findById(rateIdentity).orElse(null);
     }
 
-    public Float getAverateRate(Integer ratedObjectId, String rateType) {
+    public Float getAverageRate(String ratedObjectId, String rateType) {
         return rateRepository.findAverageRateValueByRatedObjectIdAndRateType(ratedObjectId, rateType);
     }
 }

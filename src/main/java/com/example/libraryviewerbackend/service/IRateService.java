@@ -8,7 +8,7 @@ public interface IRateService {
 
     RateDTO findRateById(RateIdentityDTO rateIdentity);
 
-    Float getAverageRateForObject(Integer ratedObjectId, String rateType);
+    Float getAverageRateForObject(String ratedObjectId, String rateType);
 
 
 }
