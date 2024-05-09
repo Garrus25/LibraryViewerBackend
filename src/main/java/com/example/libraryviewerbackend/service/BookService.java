@@ -13,7 +13,10 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class BookService implements IBookService, PictureRetriever{
@@ -83,6 +86,18 @@ public class BookService implements IBookService, PictureRetriever{
     @Override
     public List<BookDTO> findNewlyAddedBooks(Integer amount){
         List<Book> books = bookRepositoryAdapter.findNewlyAddedBooks(amount);
+
         return books.stream().map(BookModelMapper.INSTANCE::toDTO).toList();
+    }
+
+    @Override
+    public List<BookDTO> findSpecifiedAmountOfBestRatedBooks(Integer amount) {
+        List<BookDTO> books = bookRepositoryAdapter.findBestRatedBooks(amount).stream()
+                .map(BookModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+
+        books.forEach(book -> book.setAverageRating(new BigDecimal(String.valueOf(book.getAverageRating())).setScale(2, RoundingMode.HALF_UP)));
+
+        return books;
     }
 }

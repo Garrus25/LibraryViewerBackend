@@ -40,6 +40,9 @@ paths:
   /book/newly-added/{amount}:
     $ref: 'paths/book/getNewlyAddedBooks.yml'
 
+  /book/best-rated/{amount}:
+    $ref: 'paths/book/getBestRatedBooks.yml'
+
   /author:
     $ref: 'paths/author/addAuthor.yml'
 

@@ -49,4 +49,10 @@ public class BookController extends BookApiController {
     public ResponseEntity<List<BookDTO>> getNewlyAddedBooks(Integer amount) {
         return ResponseEntity.ok(bookService.findNewlyAddedBooks(amount));
     }
+
+    @Override
+    public ResponseEntity<List<BookDTO>> getSpecifiedAmountOfBestRatedBooks(Integer amount) {
+        return ResponseEntity.ok(bookService.findSpecifiedAmountOfBestRatedBooks(amount));
+    }
+
 }

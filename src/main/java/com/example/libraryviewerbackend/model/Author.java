@@ -26,4 +26,6 @@ public class Author implements Serializable {
     private String pictureName;
     @Column(name="addition_date")
     private LocalDate additionDate;
+    @Column(name="average_rate")
+    private Float averageRating;
 }

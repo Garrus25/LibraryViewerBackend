@@ -21,4 +21,6 @@ components:
           type: string
         pictureName:
           type: string
+        averageRating:
+          type: number
 

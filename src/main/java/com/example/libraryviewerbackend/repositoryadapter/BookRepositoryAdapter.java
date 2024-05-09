@@ -33,4 +33,8 @@ public class BookRepositoryAdapter {
     public List<Book> findNewlyAddedBooks(Integer amount){
             return bookRepository.findSpecifiedAmountOfBooksOrderedByAdditionDate(amount);
     }
+
+    public List<Book> findBestRatedBooks(Integer amount){
+        return bookRepository.findSpecifiedAmountOfBestRatedBooks(amount);
+    }
 }
