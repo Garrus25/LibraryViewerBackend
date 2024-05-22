@@ -53,8 +53,13 @@ public class BookService implements IBookService, PictureRetriever{
 
     @Override
     public List<BookDTO> getAllBooks() {
-        List<Book> books = bookRepositoryAdapter.getAllBooks();
-        return books.stream().map(BookModelMapper.INSTANCE::toDTO).toList();
+        List<BookDTO> books = bookRepositoryAdapter.getAllBooks().stream()
+                .map(BookModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+
+        books.forEach(book -> book.setAverageRating(new BigDecimal(String.valueOf(book.getAverageRating())).setScale(2, RoundingMode.HALF_UP)));
+
+        return books;
     }
 
     @Override
@@ -99,5 +104,13 @@ public class BookService implements IBookService, PictureRetriever{
         books.forEach(book -> book.setAverageRating(new BigDecimal(String.valueOf(book.getAverageRating())).setScale(2, RoundingMode.HALF_UP)));
 
         return books;
+    }
+
+
+    @Override
+    public List<BookDTO> getBooksCreatedBySpecificUser(String userId) {
+        return bookRepositoryAdapter.getAllBooksCreatedBySpecificUser(userId).stream()
+                .map(BookModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
     }
 }

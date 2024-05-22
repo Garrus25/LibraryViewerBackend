@@ -18,4 +18,6 @@ public interface IUserService {
     Boolean checkIfEmailIsConfirmed(UserIdentityDTO userIdentityDTO);
 
     boolean resendEmailConfirmation(UserIdentityDTO userIdentityDTO);
+
+    UserDTO getUserById(String id);
 }

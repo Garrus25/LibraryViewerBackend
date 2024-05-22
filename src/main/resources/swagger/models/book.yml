@@ -22,3 +22,5 @@ components:
           type: string
         averageRating:
           type: number
+        createdBy:
+          type: string

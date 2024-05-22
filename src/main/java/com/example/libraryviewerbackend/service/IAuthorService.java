@@ -12,4 +12,5 @@ public interface IAuthorService {
     AuthorDTO addAuthor(AuthorDTO authorDTO);
     Resource retrieveStaticPictureData(String filename);
     List<AuthorDTO> findNewlyAddedAuthors(Integer amount);
+    List<AuthorDTO> getAuthorsCreatedBySpecificUser(String id);
 }

@@ -49,4 +49,9 @@ public class AuthorController extends AuthorApiController {
     public ResponseEntity<List<AuthorDTO>> getNewlyAddedAuthors(Integer amount) {
         return ResponseEntity.ok(authorService.findNewlyAddedAuthors(amount));
     }
+
+    @Override
+    public ResponseEntity<List<AuthorDTO>> getAllAuthorsCreatedBySpecificUser(String id) {
+        return ResponseEntity.ok(authorService.getAuthorsCreatedBySpecificUser(id));
+    }
 }

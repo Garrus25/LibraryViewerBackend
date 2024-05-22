@@ -37,4 +37,8 @@ public class BookRepositoryAdapter {
     public List<Book> findBestRatedBooks(Integer amount){
         return bookRepository.findSpecifiedAmountOfBestRatedBooks(amount);
     }
+
+    public List<Book> getAllBooksCreatedBySpecificUser(String userId){
+        return bookRepository.getBookByCreatedBy(userId);
+    }
 }

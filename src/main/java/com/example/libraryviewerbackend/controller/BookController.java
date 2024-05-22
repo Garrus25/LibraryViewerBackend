@@ -55,4 +55,8 @@ public class BookController extends BookApiController {
         return ResponseEntity.ok(bookService.findSpecifiedAmountOfBestRatedBooks(amount));
     }
 
+    @Override
+    public ResponseEntity<List<BookDTO>> getAllBooksCreatedBySpecificUser(String id) {
+        return ResponseEntity.ok(bookService.getBooksCreatedBySpecificUser(id));
+    }
 }

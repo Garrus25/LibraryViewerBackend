@@ -16,4 +16,6 @@ public interface IBookService {
     List<BookDTO> findNewlyAddedBooks(Integer amount);
 
     List<BookDTO> findSpecifiedAmountOfBestRatedBooks(Integer amount);
+
+    List<BookDTO> getBooksCreatedBySpecificUser(String userId);
 }

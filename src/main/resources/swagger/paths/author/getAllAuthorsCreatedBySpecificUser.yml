@@ -1,0 +1,25 @@
+get:
+  summary: get all authors created by specific user
+  operationId: getAllAuthorsCreatedBySpecificUser
+  parameters:
+    - name: id
+      in: path
+      description: ID of the user to retrieve authors for
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../models/author.yml#/components/schemas/AuthorDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string

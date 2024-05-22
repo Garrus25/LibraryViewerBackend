@@ -28,4 +28,6 @@ public class Author implements Serializable {
     private LocalDate additionDate;
     @Column(name="average_rate")
     private Float averageRating;
+    @Column(name="created_by")
+    private String createdBy;
 }

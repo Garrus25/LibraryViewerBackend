@@ -67,4 +67,9 @@ public class AuthorService implements IAuthorService, PictureRetriever {
     public List<AuthorDTO> findNewlyAddedAuthors(Integer amount){
         return authorRepositoryAdapter.findNewlyAddedAuthors(amount).stream().map(AuthorModelMapper.INSTANCE::toDTO).toList();
     }
+
+    @Override
+    public List<AuthorDTO> getAuthorsCreatedBySpecificUser(String id) {
+        return authorRepositoryAdapter.getAuthorsCreatedBySpecificUser(id).stream().map(AuthorModelMapper.INSTANCE::toDTO).toList();
+    }
 }

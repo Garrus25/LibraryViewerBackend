@@ -1,5 +1,5 @@
 post:
-  summary: add book to the database
+  summary: Dodaj książkę do bazy danych
   operationId: addBook
   requestBody:
     content:
