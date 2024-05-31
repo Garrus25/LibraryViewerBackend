@@ -1,4 +1,6 @@
 post:
+  tags:
+    - Autor
   summary: add author to the database
   operationId: addAuthor
   requestBody:

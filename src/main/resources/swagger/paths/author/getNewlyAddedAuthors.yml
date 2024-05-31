@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Autor
   summary: get specified amount of newly added authors
   operationId: getNewlyAddedAuthors
   parameters:

@@ -1,4 +1,6 @@
 post:
+  tags:
+    - Książka
   summary: Dodaj książkę do bazy danych
   operationId: addBook
   requestBody:

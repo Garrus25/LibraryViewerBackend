@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Autor
   summary: get all authors created by specific user
   operationId: getAllAuthorsCreatedBySpecificUser
   parameters:

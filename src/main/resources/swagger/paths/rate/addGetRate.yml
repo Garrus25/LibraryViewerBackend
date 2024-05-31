@@ -1,4 +1,6 @@
 put:
+  tags:
+    - Ocena
   summary: add or update rate
   operationId: addRate
   requestBody:
@@ -21,6 +23,8 @@ put:
             type: string
 
 post:
+  tags:
+    - Ocena
   summary: get rate by id
   operationId: getRateById
   requestBody:

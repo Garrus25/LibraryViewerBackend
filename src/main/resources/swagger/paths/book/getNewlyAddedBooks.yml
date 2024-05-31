@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Książka
   summary: Pobierz określoną ilość najnowszych książek
   operationId: getNewlyAddedBooks
   parameters:

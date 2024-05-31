@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Użytkownik
   summary: Get User by ID
   operationId: getUserById
   parameters:

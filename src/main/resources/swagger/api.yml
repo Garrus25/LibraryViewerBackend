@@ -2,13 +2,14 @@ openapi: "3.0.1"
 
 info:
   title: "Library Viewer Backend"
-  version: "0.0.1"
+  version: "1.0.0"
   description: API for the Library Viewer Application
 
 servers:
   - url: http://localhost:8080/api
     description: Local server
 
+paths:
 paths:
   /user:
     $ref: 'paths/user/createUser.yml'

@@ -1,4 +1,6 @@
 post:
+  tags:
+    - Użytkownik
   summary: Check if User confirmed his email address
   operationId: checkIfEmailIsConfirmed
   requestBody:

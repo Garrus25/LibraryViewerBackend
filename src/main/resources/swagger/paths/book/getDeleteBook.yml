@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Książka
   summary: Pobierz książkę po ID
   operationId: getBookById
   parameters:
@@ -28,6 +30,8 @@ get:
             type: string
 
 delete:
+  tags:
+    - Książka
   summary: Usuń książkę po ID
   operationId: deleteBookById
   parameters:

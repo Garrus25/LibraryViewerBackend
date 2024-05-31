@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Autor
   summary: get author picture
   operationId: getAuthorPicture
   parameters:
