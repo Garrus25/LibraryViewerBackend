@@ -45,7 +45,7 @@ public class AuthorService implements IAuthorService, PictureRetriever {
 
     public AuthorDTO addAuthor(AuthorDTO authorDTO){
         if (authorRepositoryAdapter.getAuthorById(authorDTO.getAuthorId()) != null) {
-            throw new ObjectAlreadyExistsException("Author with specified ID already exists", Long.valueOf(authorDTO.getAuthorId()));
+            throw new ObjectAlreadyExistsException(UserMessages.BOOK_WITH_ISBN_ALREADY_EXISTS, Long.valueOf(authorDTO.getAuthorId()));
         }
 
         return AuthorModelMapper.INSTANCE.toDTO(authorRepositoryAdapter.addAuthor(AuthorModelMapper.INSTANCE.toEntity(authorDTO)));

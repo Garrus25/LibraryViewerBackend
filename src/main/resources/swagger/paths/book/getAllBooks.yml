@@ -1,7 +1,5 @@
 get:
-  tags:
-    - Książka
-  summary: Pobierz wszystkie książki
+  summary: get all books
   operationId: getAllBooks
   responses:
     200:

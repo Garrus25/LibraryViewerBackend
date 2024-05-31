@@ -1,7 +1,5 @@
 get:
-  tags:
-    - Książka
-  summary: Pobierz najwyżej oceniane książki
+  summary: get best rated books
   operationId: getSpecifiedAmountOfBestRatedBooks
   parameters:
     - name: amount
