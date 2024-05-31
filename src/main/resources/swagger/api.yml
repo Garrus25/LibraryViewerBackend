@@ -81,3 +81,6 @@ paths:
 
   /review/{id}:
     $ref: 'paths/review/getReviewById.yml'
+
+  /review/created-by/{id}:
+    $ref: 'paths/review/getAllReviewsCreatedBySpecificUser.yml'

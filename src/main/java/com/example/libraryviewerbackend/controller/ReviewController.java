@@ -32,4 +32,9 @@ public class ReviewController extends ReviewApiController {
     public ResponseEntity<ReviewDTO> getReviewById(Integer id) {
         return ResponseEntity.ok(reviewService.getReviewById(id));
     }
+
+    @Override
+    public ResponseEntity<List<ReviewDTO>> getAllReviewsCreatedBySpecificUser(String id) {
+        return ResponseEntity.ok(reviewService.getAllReviewsCreatedBySpecificUser(id));
+    }
 }

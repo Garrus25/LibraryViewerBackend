@@ -1,5 +1,6 @@
 package com.example.libraryviewerbackend.service;
 
+import com.example.libraryviewerbackend.exceptions.ObjectAlreadyExistsException;
 import com.example.libraryviewerbackend.exceptions.ObjectNotFoundException;
 import com.example.libraryviewerbackend.model.Review;
 import com.example.libraryviewerbackend.modelmapper.ReviewModelMapper;
@@ -21,6 +22,10 @@ public class ReviewService implements IReviewService {
 
     @Override
     public ReviewDTO addReview(ReviewDTO review) {
+        ReviewDTO reviewDTO = reviewRepositoryAdapter.getById(review.getReviewId()).map(ReviewModelMapper.INSTANCE::toDTO).orElse(null);
+        if (reviewDTO != null) {
+            throw new ObjectAlreadyExistsException("Review with specified ID already exists", Long.valueOf(review.getReviewId()));
+        }
         return ReviewModelMapper.INSTANCE.toDTO(reviewRepositoryAdapter.save(ReviewModelMapper.INSTANCE.toEntity(review)));
     }
 
@@ -37,5 +42,10 @@ public class ReviewService implements IReviewService {
         }
 
         return reviewDTO;
+    }
+
+    @Override
+    public List<ReviewDTO> getAllReviewsCreatedBySpecificUser(String userId) {
+        return reviewRepositoryAdapter.getAllReviewsCreatedBySpecificUser(userId).stream().map(ReviewModelMapper.INSTANCE::toDTO).toList();
     }
 }

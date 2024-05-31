@@ -26,4 +26,8 @@ public class ReviewRepositoryAdapter {
     public Review save(Review review) {
         return reviewRepository.save(review);
     }
+
+    public List<Review> getAllReviewsCreatedBySpecificUser(String userId) {
+        return reviewRepository.getAllReviewsCreatedBySpecificUser(userId);
+    }
 }
