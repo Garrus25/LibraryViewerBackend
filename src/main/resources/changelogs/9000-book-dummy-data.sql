@@ -7,7 +7,7 @@ values(
           '275631-352x500.jpg',
           '2006-10-01',
           '2024-04-24',
-          '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+          '2afa0363-3879-45d3-9450-5323c898c525');
 
 insert into books (isbn, author_id, title, description, cover_name, publish_date, addition_date, created_by)
 values(
@@ -18,7 +18,7 @@ values(
        '1146705-352x500.jpg',
        '2003-11-01',
        '2024-04-25',
-       '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+       '2afa0363-3879-45d3-9450-5323c898c525');
 
 insert into books (isbn, author_id, title, description, cover_name, publish_date, addition_date, created_by)
 values(11111111112,
@@ -28,7 +28,7 @@ values(11111111112,
        '1093014-352x500.jpg',
        '2023-10-01',
        '2024-04-26',
-       '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+       '2afa0363-3879-45d3-9450-5323c898c525');
 
 insert into books (isbn, author_id, title, description, cover_name, publish_date, addition_date, created_by)
 values(11111111113,
@@ -39,7 +39,7 @@ values(11111111113,
        '1152649-352x500.jpg',
        '2024-04-29',
        '2024-04-27',
-       '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+       '2afa0363-3879-45d3-9450-5323c898c525');
 
 insert into books (isbn, author_id, title, description, cover_name, publish_date, addition_date, created_by)
 values(9788368069068,
@@ -54,7 +54,7 @@ values(9788368069068,
        '1151415-352x500.jpg',
        '2024-04-26',
        '2024-04-28',
-       '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+       '2afa0363-3879-45d3-9450-5323c898c525');
 
 insert into books (isbn, author_id, title, description, cover_name, publish_date, addition_date, created_by)
 values(9788383611754,
@@ -68,7 +68,7 @@ values(9788383611754,
        '1134280-352x500.jpg',
        '1993-01-01 ',
        '2024-04-29',
-       '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+       '2afa0363-3879-45d3-9450-5323c898c525');
 
 insert into books (isbn, author_id, title, description, cover_name, publish_date, addition_date, created_by)
 values(9788368005066,
@@ -78,4 +78,4 @@ values(9788368005066,
        '1150973-352x500.jpg',
        '2024-04-24',
        '2024-04-30',
-       '4eba4395-2ebd-4ae9-8ab5-5f00724c8fd1');
+       '2afa0363-3879-45d3-9450-5323c898c525');

@@ -10,7 +10,6 @@ servers:
     description: Local server
 
 paths:
-paths:
   /user:
     $ref: 'paths/user/createUser.yml'
 
@@ -73,3 +72,12 @@ paths:
 
   /rate/average/{ratedObjectId}/{rateType}:
     $ref: 'paths/rate/getAverageRateForObject.yml'
+
+  /review:
+    $ref: 'paths/review/addReview.yml'
+
+  /review/all:
+    $ref: 'paths/review/getAllReviews.yml'
+
+  /review/{id}:
+    $ref: 'paths/review/getReviewById.yml'

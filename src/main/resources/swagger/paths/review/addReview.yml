@@ -1,0 +1,29 @@
+post:
+  tags:
+    - Recenzja
+  summary: Dodaj recenzję książki
+  operationId: addReview
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+    409:
+      description: CONFLICT
+      content:
+        application/json:
+          schema:
+            type: string

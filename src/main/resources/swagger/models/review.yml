@@ -1,0 +1,19 @@
+components:
+  schemas:
+    ReviewDTO:
+      type: object
+      description: Recenzja
+      properties:
+        reviewId:
+          type: integer
+          x-field-extra-annotation: '@NotNull()'
+        title:
+          type: string
+          x-field-extra-annotation: '@NotNull()'
+        content:
+          type: string
+        bookId:
+          type: string
+        createdBy:
+          type: string
+          x-field-extra-annotation: '@NotNull()'
