@@ -1,5 +1,5 @@
 get:
-  summary: get specified amount of newly added books
+  summary: Pobierz określoną ilość najnowszych książek
   operationId: getNewlyAddedBooks
   parameters:
     - name: amount

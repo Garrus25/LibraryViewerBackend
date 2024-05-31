@@ -1,6 +1,4 @@
 get:
-  tags:
-    - Ocena
   summary: get average rate for specified object
   operationId: getAverageRateForObject
   parameters:

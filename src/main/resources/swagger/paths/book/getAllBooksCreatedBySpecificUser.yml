@@ -1,5 +1,5 @@
 get:
-  summary: get all books created by specific user
+  summary: Pobierz książki dodane przez określonego użytkownika
   operationId: getAllBooksCreatedBySpecificUser
   parameters:
     - name: id

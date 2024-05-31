@@ -1,6 +1,4 @@
 get:
-  tags:
-    - Autor
   summary: get author by id
   operationId: getAuthorB yId
   parameters:
@@ -30,8 +28,6 @@ get:
             type: string
 
 delete:
-  tags:
-    - Autor
   summary: delete author by id
   operationId: deleteAuthorById
   parameters:

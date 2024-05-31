@@ -1,6 +1,4 @@
 post:
-  tags:
-    - Użytkownik
   summary: Create User object
   operationId: createUser
   requestBody:

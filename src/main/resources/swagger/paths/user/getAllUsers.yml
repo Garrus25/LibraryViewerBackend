@@ -1,6 +1,4 @@
 get:
-  tags:
-    - Użytkownik
   summary: Get all Users
   operationId: getAllUsers
   responses:

@@ -1,6 +1,4 @@
 post:
-  tags:
-    - Użytkownik
   summary: re-send confirmation email
   operationId: resendEmail
   requestBody:

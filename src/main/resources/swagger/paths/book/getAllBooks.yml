@@ -1,5 +1,5 @@
 get:
-  summary: get all books
+  summary: Pobierz wszystkie książki
   operationId: getAllBooks
   responses:
     200:
