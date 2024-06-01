@@ -6,7 +6,6 @@ components:
       properties:
         authorId:
           type: integer
-          x-field-extra-annotation: '@NotNull()'
         name:
           type: string
           x-field-extra-annotation: '@Size(min = 3, max = 32, message = "length must be 3 to 32 characters") 

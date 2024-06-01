@@ -1,5 +1,5 @@
-insert into authors (author_id, name, surname, description, addition_date, picture_name, created_by)
-values (1,
+insert into authors (name, surname, description, addition_date, picture_name, created_by)
+values (
         'Stephen',
         'King',
         'Stephen Edwin King – amerykański pisarz specjalizujący się w literaturze grozy. W przeszłości wydawał książki pod pseudonimem Richard Bachman, raz jako John Swithen. Jego książki rozeszły się w nakładzie przekraczającym 350 milionów egzemplarzy, co czyni go jednym z najbardziej poczytnych pisarzy na świecie',
@@ -7,8 +7,8 @@ values (1,
         '1020127-352x500.jpg',
         '2afa0363-3879-45d3-9450-5323c898c525');
 
-insert into authors (author_id, name, surname, description, addition_date, picture_name, created_by)
-values (2,
+insert into authors (name, surname, description, addition_date, picture_name, created_by)
+values (
         'Cixin',
         'Liu',
         'Jedna z największych gwiazd chińskiej i światowej fantastyki naukowej. Zanim w pełni poświęcił się karierze pisarskiej, przez wiele lat pracował jako inżynier w elektrowni. Opublikował ponad 20 antologii i powieści z gatunku hard science fiction. Otrzymał liczne nagrody Yinhe i Xingyun, najbardziej prestiżowe wyróżnienia dla chińskojęzycznych twórców fantastyki. Jego trylogia „Wspomnienie o przeszłości Ziemi” została uznana za największe w ostatnich latach wydarzenie w światowej SF. W 2015 roku za Problem trzech ciał, pierwszy tom cyklu, Liu zdobył nagrodę Hugo dla najlepszej powieści, po raz pierwszy w historii przyznaną autorowi nieanglojęzycznemu. Książka znalazła się także w finale nagród Nebula, Prometeusza, Locusa i Johna W. Campbella. Mark Zuckerberg, twórca Facebooka, uznał ją za jedną z najbardziej wartych przeczytania książek roku, a ówczesny prezydent Barack Obama zabrał ją na urlop na Hawajach.',
@@ -16,8 +16,8 @@ values (2,
         '787961-352x500.jpg',
         '2afa0363-3879-45d3-9450-5323c898c525');
 
-insert into authors (author_id, name, surname, description, addition_date, picture_name, created_by)
-values (3,
+insert into authors (name, surname, description, addition_date, picture_name, created_by)
+values (
         'Rebecca',
         'Yarros',
         'Rebecca Yarros to 42-letnia amerykańska pisarka mieszkająca w Kolorado.
@@ -26,8 +26,8 @@ values (3,
         '1127350-352x500.jpg',
         '2afa0363-3879-45d3-9450-5323c898c525');
 
-insert into authors (author_id, name, surname, description, addition_date, picture_name, created_by)
-values (4,
+insert into authors (name, surname, description, addition_date, picture_name, created_by)
+values (
         'Delia',
         'Owens',
         'DELIA OWENS jest współautorką trzech międzynarodowych bestsellerów literatury faktu opisujących jej życie jako badaczki afrykańskiej fauny i flory. Zdobyła prestiżową nagrodę „John Burroughs Award for Nature Writing”. Publikuje artykuły w czasopismach „Nature”, „African Journal of Ecology” oraz „International Wildlife”. Mieszka w Idaho. „Gdzie śpiewają raki” to jej debiutancka powieść.https://www.deliaowens.com/',
@@ -35,8 +35,8 @@ values (4,
         '711834-352x500.jpg',
         '2afa0363-3879-45d3-9450-5323c898c525');
 
-insert into authors (author_id, name, surname, description, addition_date, picture_name, created_by)
-values (5,
+insert into authors (name, surname, description, addition_date, picture_name, created_by)
+values (
         'Sławomir',
         'Gortych',
         'Autor bestsellerowych kryminałów, których akcja rozgrywa się w Karkonoszach, i wielki miłośnik tych gór. Od najmłodszych lat zgłębia ich sekrety, związane z nimi legendy i historie. Poza tym stomatolog z wykształcenia i pasji. W wolnych chwilach prowadzi blog „Zagubiony w Karkonoszach”. Inspirację do swojej twórczości czerpie z wędrówek po górach oraz rozmów z ich mieszkańcami.
@@ -47,8 +47,8 @@ Autor został również uhonorowany Karkonoską Nagrodą Literacką przyznawaną
         '2afa0363-3879-45d3-9450-5323c898c525');
 
 
-insert into authors (author_id, name, surname, description, addition_date, picture_name, created_by)
-values (6,
+insert into authors ( name, surname, description, addition_date, picture_name, created_by)
+values (
         'Remigiusz',
         'Mróz',
         'Polski pisarz, autor powieści kryminalnych oraz cyklu publicystycznego „Kurs pisania”.
