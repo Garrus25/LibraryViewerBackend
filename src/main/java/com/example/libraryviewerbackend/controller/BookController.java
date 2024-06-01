@@ -6,6 +6,7 @@ import com.openapi.gen.springboot.dto.*;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -58,5 +59,11 @@ public class BookController extends BookApiController {
     @Override
     public ResponseEntity<List<BookDTO>> getAllBooksCreatedBySpecificUser(String id) {
         return ResponseEntity.ok(bookService.getBooksCreatedBySpecificUser(id));
+    }
+
+    @Override
+    public ResponseEntity<Void> uploadImage(MultipartFile file) {
+        bookService.saveBookCover(file);
+        return ResponseEntity.ok().build();
     }
 }

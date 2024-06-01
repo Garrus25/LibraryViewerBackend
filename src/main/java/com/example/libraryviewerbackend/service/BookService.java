@@ -12,10 +12,16 @@ import jakarta.ws.rs.BadRequestException;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
@@ -112,5 +118,18 @@ public class BookService implements IBookService, PictureRetriever{
         return bookRepositoryAdapter.getAllBooksCreatedBySpecificUser(userId).stream()
                 .map(BookModelMapper.INSTANCE::toDTO)
                 .collect(Collectors.toList());
+    }
+
+
+    public Boolean saveBookCover(MultipartFile file) {
+        try {
+            Path directoryPath = Paths.get("src/main/resources/media/book-covers");
+            Path filePath = directoryPath.resolve(Objects.requireNonNull(file.getOriginalFilename()));
+            Files.write(filePath, file.getBytes());
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

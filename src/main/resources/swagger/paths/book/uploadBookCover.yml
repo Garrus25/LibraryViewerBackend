@@ -1,0 +1,19 @@
+post:
+  summary: Upload an image
+  operationId: uploadImage
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          properties:
+            file:
+              type: string
+              format: binary
+              description: The file to upload.
+    required: true
+  responses:
+    '200':
+      description: Image uploaded successfully
+    '400':
+      description: Invalid image provided

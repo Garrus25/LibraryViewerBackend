@@ -40,6 +40,9 @@ paths:
   /book/cover/{filename}:
     $ref: 'paths/book/getBookCover.yml'
 
+  /book/cover/upload:
+    $ref: 'paths/book/uploadBookCover.yml'
+
   /book/newly-added/{amount}:
     $ref: 'paths/book/getNewlyAddedBooks.yml'
 
