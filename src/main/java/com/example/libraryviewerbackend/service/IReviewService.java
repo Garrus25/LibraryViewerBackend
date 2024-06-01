@@ -13,4 +13,6 @@ public interface IReviewService {
     ReviewDTO getReviewById(Integer id);
 
     List<ReviewDTO> getAllReviewsCreatedBySpecificUser(String userId);
+
+    List<ReviewDTO> getAllReviewsByBookId(String bookId);
 }

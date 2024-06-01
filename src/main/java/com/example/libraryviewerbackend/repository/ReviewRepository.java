@@ -10,4 +10,6 @@ import java.util.List;
 public interface ReviewRepository extends BaseRepository<Review, Integer> {
     @Query(value = "SELECT * FROM reviews WHERE created_by = :userId", nativeQuery = true)
     List<Review> getAllReviewsCreatedBySpecificUser(String userId);
+
+    List<Review> getAllByBookId(String bookId);
 }

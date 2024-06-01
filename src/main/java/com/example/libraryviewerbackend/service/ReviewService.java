@@ -43,4 +43,9 @@ public class ReviewService implements IReviewService {
     public List<ReviewDTO> getAllReviewsCreatedBySpecificUser(String userId) {
         return reviewRepositoryAdapter.getAllReviewsCreatedBySpecificUser(userId).stream().map(ReviewModelMapper.INSTANCE::toDTO).toList();
     }
+
+    @Override
+    public List<ReviewDTO> getAllReviewsByBookId(String bookId) {
+        return reviewRepositoryAdapter.getAllReviewsByBookId(bookId).stream().map(ReviewModelMapper.INSTANCE::toDTO).toList();
+    }
 }

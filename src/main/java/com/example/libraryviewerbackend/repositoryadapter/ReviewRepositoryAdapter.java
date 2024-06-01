@@ -30,4 +30,8 @@ public class ReviewRepositoryAdapter {
     public List<Review> getAllReviewsCreatedBySpecificUser(String userId) {
         return reviewRepository.getAllReviewsCreatedBySpecificUser(userId);
     }
+
+    public List<Review> getAllReviewsByBookId(String bookId) {
+        return reviewRepository.getAllByBookId(bookId);
+    }
 }
