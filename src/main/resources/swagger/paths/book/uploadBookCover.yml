@@ -1,6 +1,6 @@
 post:
   summary: Upload an image
-  operationId: uploadImage
+  operationId: uploadBookCover
   requestBody:
     content:
       multipart/form-data:
