@@ -1,0 +1,2 @@
+ALTER TABLE books
+    ALTER COLUMN average_rate SET DEFAULT 0;
