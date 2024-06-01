@@ -1,6 +1,6 @@
-insert into reviews (id, title, content, created_by, book_id)
+insert into reviews ( title, content, created_by, book_id)
 values (
-           1,
+
            'Review1',
            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa. Faucibus scelerisque eleifend donec pretium. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Ultrices in iaculis nunc sed augue lacus. Sollicitudin tempor id eu nisl. Vel fringilla est ullamcorper eget nulla facilisi etiam. Sed elementum tempus egestas sed sed risus pretium quam. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Amet nisl purus in mollis. Dictum sit amet justo donec enim. Lectus quam id leo in. A erat nam at lectus urna duis. Quisque sagittis purus sit amet volutpat consequat mauris. Aliquam vestibulum morbi blandit cursus risus at ultrices. Sed tempus urna et pharetra pharetra massa. Amet nisl purus in mollis nunc sed id semper. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Pulvinar sapien et ligula ullamcorper malesuada proin.
 
@@ -13,9 +13,9 @@ values (
            1892950960
        );
 
-insert into reviews (id, title, content, created_by, book_id)
+insert into reviews (title, content, created_by, book_id)
 values (
-           2,
+
            'Review2',
            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa. Faucibus scelerisque eleifend donec pretium. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Ultrices in iaculis nunc sed augue lacus. Sollicitudin tempor id eu nisl. Vel fringilla est ullamcorper eget nulla facilisi etiam. Sed elementum tempus egestas sed sed risus pretium quam. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Amet nisl purus in mollis. Dictum sit amet justo donec enim. Lectus quam id leo in. A erat nam at lectus urna duis. Quisque sagittis purus sit amet volutpat consequat mauris. Aliquam vestibulum morbi blandit cursus risus at ultrices. Sed tempus urna et pharetra pharetra massa. Amet nisl purus in mollis nunc sed id semper. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Pulvinar sapien et ligula ullamcorper malesuada proin.
 
@@ -29,9 +29,9 @@ values (
        );
 
 
-insert into reviews (id, title, content, created_by, book_id)
+insert into reviews (title, content, created_by, book_id)
 values (
-           3,
+
            'Review3',
            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa. Faucibus scelerisque eleifend donec pretium. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Ultrices in iaculis nunc sed augue lacus. Sollicitudin tempor id eu nisl. Vel fringilla est ullamcorper eget nulla facilisi etiam. Sed elementum tempus egestas sed sed risus pretium quam. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Amet nisl purus in mollis. Dictum sit amet justo donec enim. Lectus quam id leo in. A erat nam at lectus urna duis. Quisque sagittis purus sit amet volutpat consequat mauris. Aliquam vestibulum morbi blandit cursus risus at ultrices. Sed tempus urna et pharetra pharetra massa. Amet nisl purus in mollis nunc sed id semper. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Pulvinar sapien et ligula ullamcorper malesuada proin.
 
@@ -45,9 +45,9 @@ values (
        );
 
 
-insert into reviews (id, title, content, created_by, book_id)
+insert into reviews (title, content, created_by, book_id)
 values (
-           4,
+
            'Review4',
            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sed ullamcorper morbi tincidunt ornare massa. Faucibus scelerisque eleifend donec pretium. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Ultrices in iaculis nunc sed augue lacus. Sollicitudin tempor id eu nisl. Vel fringilla est ullamcorper eget nulla facilisi etiam. Sed elementum tempus egestas sed sed risus pretium quam. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa. Amet nisl purus in mollis. Dictum sit amet justo donec enim. Lectus quam id leo in. A erat nam at lectus urna duis. Quisque sagittis purus sit amet volutpat consequat mauris. Aliquam vestibulum morbi blandit cursus risus at ultrices. Sed tempus urna et pharetra pharetra massa. Amet nisl purus in mollis nunc sed id semper. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Pulvinar sapien et ligula ullamcorper malesuada proin.
 

@@ -6,7 +6,6 @@ components:
       properties:
         reviewId:
           type: integer
-          x-field-extra-annotation: '@NotNull()'
         title:
           type: string
           x-field-extra-annotation: '@NotNull()'
