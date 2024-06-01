@@ -1,8 +1,6 @@
 get:
-  tags:
-    - Recenzja
   summary: Pobierz wszystkie recenzje
-  operationId: getAllBooks
+  operationId: getAllReviews
   responses:
     200:
       description: OK

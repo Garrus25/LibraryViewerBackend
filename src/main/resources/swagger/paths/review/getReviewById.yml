@@ -1,6 +1,4 @@
 get:
-  tags:
-    - Recenzja
   summary: Pobierz recenzje na podstawie jej ID
   operationId: getReviewById
   parameters:

@@ -9,6 +9,7 @@ import com.example.libraryviewerbackend.repositoryadapter.BookRepositoryAdapter;
 import com.example.libraryviewerbackend.utils.UserMessages;
 import com.openapi.gen.springboot.dto.BookDTO;
 import jakarta.ws.rs.BadRequestException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
@@ -24,6 +25,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class BookService implements IBookService, PictureRetriever{
     private final BookRepositoryAdapter bookRepositoryAdapter;
@@ -120,15 +122,15 @@ public class BookService implements IBookService, PictureRetriever{
                 .collect(Collectors.toList());
     }
 
-
-    public Boolean saveBookCover(MultipartFile file) {
+    @Override
+    public Boolean saveImage(MultipartFile file) {
         try {
             Path directoryPath = Paths.get("src/main/resources/media/book-covers");
             Path filePath = directoryPath.resolve(Objects.requireNonNull(file.getOriginalFilename()));
             Files.write(filePath, file.getBytes());
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error("Error while saving image", e);
             return false;
         }
     }

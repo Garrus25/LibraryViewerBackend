@@ -62,8 +62,8 @@ public class BookController extends BookApiController {
     }
 
     @Override
-    public ResponseEntity<Void> uploadImage(MultipartFile file) {
-        bookService.saveBookCover(file);
+    public ResponseEntity<Void> uploadBookCover(MultipartFile file) {
+        bookService.saveImage(file);
         return ResponseEntity.ok().build();
     }
 }

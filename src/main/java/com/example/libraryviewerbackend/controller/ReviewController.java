@@ -24,7 +24,7 @@ public class ReviewController extends ReviewApiController {
     }
 
     @Override
-    public ResponseEntity<List<ReviewDTO>> getAllBooks() {
+    public ResponseEntity<List<ReviewDTO>> getAllReviews() {
         return ResponseEntity.ok(reviewService.getAllReviews());
     }
 

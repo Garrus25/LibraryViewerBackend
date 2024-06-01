@@ -1,7 +1,5 @@
 post:
-  tags:
-    - Recenzja
-  summary: Dodaj recenzję książki
+  summary: Add book Review
   operationId: addReview
   requestBody:
     content:
