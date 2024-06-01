@@ -35,4 +35,10 @@ public class Book implements Serializable {
     @Column(name="addition_date")
     private LocalDate additionDate;
 
+    @Column(name="average_rate")
+    private Float averageRating;
+
+    @Column(name="created_by")
+    private String createdBy;
+
 }

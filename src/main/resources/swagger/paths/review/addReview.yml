@@ -1,18 +1,18 @@
-post:
-  summary: Dodaj książkę do bazy danych
-  operationId: addBook
+put:
+  summary: Add book Review
+  operationId: addReview
   requestBody:
     content:
       application/json:
         schema:
-          $ref: '../../models/book.yml#/components/schemas/BookDTO'
+          $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
   responses:
     200:
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../../models/book.yml#/components/schemas/BookDTO'
+            $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
     400:
       description: BAD REQUEST
       content:

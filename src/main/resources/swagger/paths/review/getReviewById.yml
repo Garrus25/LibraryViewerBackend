@@ -1,0 +1,19 @@
+get:
+  summary: Pobierz recenzje na podstawie jej ID
+  operationId: getReviewById
+  parameters:
+    - name: id
+      in: path
+      description: Identyfikator recenzji
+      required: true
+      schema:
+        type: integer
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
+    404:
+      description: Review not found

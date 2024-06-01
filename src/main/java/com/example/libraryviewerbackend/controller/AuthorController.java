@@ -6,6 +6,7 @@ import com.openapi.gen.springboot.dto.*;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -48,5 +49,16 @@ public class AuthorController extends AuthorApiController {
     @Override
     public ResponseEntity<List<AuthorDTO>> getNewlyAddedAuthors(Integer amount) {
         return ResponseEntity.ok(authorService.findNewlyAddedAuthors(amount));
+    }
+
+    @Override
+    public ResponseEntity<List<AuthorDTO>> getAllAuthorsCreatedBySpecificUser(String id) {
+        return ResponseEntity.ok(authorService.getAuthorsCreatedBySpecificUser(id));
+    }
+
+    @Override
+    public ResponseEntity<Void> uploadAuthorPicture(MultipartFile file) {
+        authorService.saveImage(file);
+        return ResponseEntity.ok().build();
     }
 }

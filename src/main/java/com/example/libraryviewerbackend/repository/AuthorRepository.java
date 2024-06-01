@@ -8,4 +8,7 @@ import java.util.List;
 public interface AuthorRepository extends BaseRepository<Author, Integer> {
     @Query(value = "SELECT * FROM authors ORDER BY addition_date DESC LIMIT :amount", nativeQuery = true)
     List<Author> findSpecifiedAmountOfAuthorsOrderedByAdditionDate(int amount);
+
+    List<Author> getAuthorByCreatedBy(String userId);
+
 }

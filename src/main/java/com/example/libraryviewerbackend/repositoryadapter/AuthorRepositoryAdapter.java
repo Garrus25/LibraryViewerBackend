@@ -33,4 +33,8 @@ public class AuthorRepositoryAdapter {
     public List<Author> findNewlyAddedAuthors(Integer amount){
         return authorRepository.findSpecifiedAmountOfAuthorsOrderedByAdditionDate(amount);
     }
+
+    public List<Author> getAuthorsCreatedBySpecificUser(String id){
+        return authorRepository.getAuthorByCreatedBy(id);
+    }
 }

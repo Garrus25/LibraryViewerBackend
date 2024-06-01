@@ -1,0 +1,1 @@
+ALTER TABLE reviews ALTER COLUMN created_by TYPE varchar(64);

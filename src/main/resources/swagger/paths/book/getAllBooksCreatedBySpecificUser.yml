@@ -1,12 +1,13 @@
 get:
-  summary: Pobierz określoną ilość najnowszych książek
-  operationId: getNewlyAddedBooks
+  summary: Pobierz książki dodane przez określonego użytkownika
+  operationId: getAllBooksCreatedBySpecificUser
   parameters:
-    - name: amount
+    - name: id
       in: path
+      description: ID of the user to retrieve books for
       required: true
       schema:
-        type: integer
+        type: string
   responses:
     200:
       description: OK
@@ -21,4 +22,4 @@ get:
       content:
         application/json:
           schema:
-            type: string
+            type: stringW

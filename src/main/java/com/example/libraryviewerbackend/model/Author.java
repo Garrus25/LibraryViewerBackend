@@ -1,9 +1,6 @@
 package com.example.libraryviewerbackend.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +14,8 @@ import java.time.LocalDate;
 @Table(name = "authors")
 @Data
 public class Author implements Serializable {
-    @Id
+    @Id()
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="author_id")
     private Integer authorId;
     private String name;
@@ -26,4 +24,8 @@ public class Author implements Serializable {
     private String pictureName;
     @Column(name="addition_date")
     private LocalDate additionDate;
+    @Column(name="average_rate")
+    private Float averageRating;
+    @Column(name="created_by")
+    private String createdBy;
 }

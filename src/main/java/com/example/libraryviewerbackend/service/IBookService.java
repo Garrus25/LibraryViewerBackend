@@ -14,4 +14,8 @@ public interface IBookService {
     void deleteBookById(String id);
 
     List<BookDTO> findNewlyAddedBooks(Integer amount);
+
+    List<BookDTO> findSpecifiedAmountOfBestRatedBooks(Integer amount);
+
+    List<BookDTO> getBooksCreatedBySpecificUser(String userId);
 }

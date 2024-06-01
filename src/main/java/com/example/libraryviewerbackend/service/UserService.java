@@ -1,5 +1,6 @@
 package com.example.libraryviewerbackend.service;
 
+import com.example.libraryviewerbackend.exceptions.ObjectNotFoundException;
 import com.example.libraryviewerbackend.model.User;
 import com.example.libraryviewerbackend.modelmapper.UserModelMapper;
 import com.example.libraryviewerbackend.repositoryadapter.UserRepositoryAdapter;
@@ -64,5 +65,15 @@ public class UserService implements IUserService {
     @Override
     public boolean resendEmailConfirmation(UserIdentityDTO userIdentityDTO) {
         return keycloakHelper.sendConfirmationEmail(userIdentityDTO.getId());
+    }
+
+    @Override
+    public UserDTO getUserById(String id) {
+        User user = userRepositoryAdapter.findById(id);
+        if (user == null) {
+            throw new ObjectNotFoundException("User with specified id not found", Long.valueOf(id), User.class);
+        }
+
+        return UserModelMapper.INSTANCE.toDTO(user);
     }
 }

@@ -1,12 +1,6 @@
 get:
-  summary: Pobierz określoną ilość najnowszych książek
-  operationId: getNewlyAddedBooks
-  parameters:
-    - name: amount
-      in: path
-      required: true
-      schema:
-        type: integer
+  summary: Pobierz wszystkie recenzje
+  operationId: getAllReviews
   responses:
     200:
       description: OK
@@ -15,9 +9,15 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../models/book.yml#/components/schemas/BookDTO'
+              $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
     400:
       description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+    409:
+      description: CONFLICT
       content:
         application/json:
           schema:

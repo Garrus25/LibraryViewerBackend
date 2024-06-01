@@ -9,12 +9,23 @@ import com.example.libraryviewerbackend.repositoryadapter.BookRepositoryAdapter;
 import com.example.libraryviewerbackend.utils.UserMessages;
 import com.openapi.gen.springboot.dto.BookDTO;
 import jakarta.ws.rs.BadRequestException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class BookService implements IBookService, PictureRetriever{
     private final BookRepositoryAdapter bookRepositoryAdapter;
@@ -50,8 +61,13 @@ public class BookService implements IBookService, PictureRetriever{
 
     @Override
     public List<BookDTO> getAllBooks() {
-        List<Book> books = bookRepositoryAdapter.getAllBooks();
-        return books.stream().map(BookModelMapper.INSTANCE::toDTO).toList();
+        List<BookDTO> books = bookRepositoryAdapter.getAllBooks().stream()
+                .map(BookModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+
+        books.forEach(book -> book.setAverageRating(new BigDecimal(String.valueOf(book.getAverageRating())).setScale(2, RoundingMode.HALF_UP)));
+
+        return books;
     }
 
     @Override
@@ -83,6 +99,39 @@ public class BookService implements IBookService, PictureRetriever{
     @Override
     public List<BookDTO> findNewlyAddedBooks(Integer amount){
         List<Book> books = bookRepositoryAdapter.findNewlyAddedBooks(amount);
+
         return books.stream().map(BookModelMapper.INSTANCE::toDTO).toList();
+    }
+
+    @Override
+    public List<BookDTO> findSpecifiedAmountOfBestRatedBooks(Integer amount) {
+        List<BookDTO> books = bookRepositoryAdapter.findBestRatedBooks(amount).stream()
+                .map(BookModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+
+        books.forEach(book -> book.setAverageRating(new BigDecimal(String.valueOf(book.getAverageRating())).setScale(2, RoundingMode.HALF_UP)));
+
+        return books;
+    }
+
+
+    @Override
+    public List<BookDTO> getBooksCreatedBySpecificUser(String userId) {
+        return bookRepositoryAdapter.getAllBooksCreatedBySpecificUser(userId).stream()
+                .map(BookModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Boolean saveImage(MultipartFile file) {
+        try {
+            Path directoryPath = Paths.get("src/main/resources/media/book-covers");
+            Path filePath = directoryPath.resolve(Objects.requireNonNull(file.getOriginalFilename()));
+            Files.write(filePath, file.getBytes());
+            return true;
+        } catch (IOException e) {
+            log.error("Error while saving image", e);
+            return false;
+        }
     }
 }

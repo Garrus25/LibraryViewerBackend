@@ -20,3 +20,7 @@ components:
           type: string
         additionDate:
           type: string
+        averageRating:
+          type: number
+        createdBy:
+          type: string

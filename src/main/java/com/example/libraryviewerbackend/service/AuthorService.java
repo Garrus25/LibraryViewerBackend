@@ -1,20 +1,26 @@
 package com.example.libraryviewerbackend.service;
 
 import com.example.libraryviewerbackend.exceptions.CoverAccessException;
-import com.example.libraryviewerbackend.exceptions.ObjectAlreadyExistsException;
 import com.example.libraryviewerbackend.exceptions.ObjectNotFoundException;
 import com.example.libraryviewerbackend.model.Author;
 import com.example.libraryviewerbackend.modelmapper.AuthorModelMapper;
 import com.example.libraryviewerbackend.repositoryadapter.AuthorRepositoryAdapter;
 import com.example.libraryviewerbackend.utils.UserMessages;
 import com.openapi.gen.springboot.dto.AuthorDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Objects;
 
+@Slf4j
 @Component
 public class AuthorService implements IAuthorService, PictureRetriever {
     private final AuthorRepositoryAdapter authorRepositoryAdapter;
@@ -44,10 +50,6 @@ public class AuthorService implements IAuthorService, PictureRetriever {
     }
 
     public AuthorDTO addAuthor(AuthorDTO authorDTO){
-        if (authorRepositoryAdapter.getAuthorById(authorDTO.getAuthorId()) != null) {
-            throw new ObjectAlreadyExistsException(UserMessages.BOOK_WITH_ISBN_ALREADY_EXISTS, Long.valueOf(authorDTO.getAuthorId()));
-        }
-
         return AuthorModelMapper.INSTANCE.toDTO(authorRepositoryAdapter.addAuthor(AuthorModelMapper.INSTANCE.toEntity(authorDTO)));
     }
 
@@ -66,5 +68,23 @@ public class AuthorService implements IAuthorService, PictureRetriever {
 
     public List<AuthorDTO> findNewlyAddedAuthors(Integer amount){
         return authorRepositoryAdapter.findNewlyAddedAuthors(amount).stream().map(AuthorModelMapper.INSTANCE::toDTO).toList();
+    }
+
+    @Override
+    public List<AuthorDTO> getAuthorsCreatedBySpecificUser(String id) {
+        return authorRepositoryAdapter.getAuthorsCreatedBySpecificUser(id).stream().map(AuthorModelMapper.INSTANCE::toDTO).toList();
+    }
+
+    @Override
+    public Boolean saveImage(MultipartFile file) {
+        try {
+            Path directoryPath = Paths.get("src/main/resources/media/author-pictures");
+            Path filePath = directoryPath.resolve(Objects.requireNonNull(file.getOriginalFilename()));
+            Files.write(filePath, file.getBytes());
+            return true;
+        } catch (IOException e) {
+            log.error("Error while saving image", e);
+            return false;
+        }
     }
 }

@@ -25,6 +25,9 @@ paths:
   /user/resend-email:
     $ref: 'paths/user/resendConfirmationEmail.yml'
 
+  /user/{id}:
+    $ref: 'paths/user/getUserById.yml'
+
   /book/all:
     $ref: 'paths/book/getAllBooks.yml'
 
@@ -37,8 +40,17 @@ paths:
   /book/cover/{filename}:
     $ref: 'paths/book/getBookCover.yml'
 
+  /book/cover/upload:
+    $ref: 'paths/book/uploadBookCover.yml'
+
   /book/newly-added/{amount}:
     $ref: 'paths/book/getNewlyAddedBooks.yml'
+
+  /book/best-rated/{amount}:
+    $ref: 'paths/book/getBestRatedBooks.yml'
+
+  /book/created-by/{id}:
+    $ref: 'paths/book/getAllBooksCreatedBySpecificUser.yml'
 
   /author:
     $ref: 'paths/author/addAuthor.yml'
@@ -52,11 +64,32 @@ paths:
   /author/picture/{filename}:
     $ref: 'paths/author/getAuthorPicture.yml'
 
+  /author/picture/upload:
+    $ref: 'paths/author/uploadAuthorPicture.yml'
+
   /author/newly-added/{amount}:
     $ref: 'paths/author/getNewlyAddedAuthors.yml'
+
+  /author/created-by/{id}:
+    $ref: 'paths/author/getAllAuthorsCreatedBySpecificUser.yml'
 
   /rate:
     $ref: 'paths/rate/addGetRate.yml'
 
   /rate/average/{ratedObjectId}/{rateType}:
     $ref: 'paths/rate/getAverageRateForObject.yml'
+
+  /review:
+    $ref: 'paths/review/addReview.yml'
+
+  /review/all:
+    $ref: 'paths/review/getAllReviews.yml'
+
+  /review/{id}:
+    $ref: 'paths/review/getReviewById.yml'
+
+  /review/book/{id}:
+    $ref: 'paths/review/getReviewByBookId.yml'
+
+  /review/created-by/{id}:
+    $ref: 'paths/review/getAllReviewsCreatedBySpecificUser.yml'

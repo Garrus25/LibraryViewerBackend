@@ -56,4 +56,9 @@ public class UserController extends UserApiController {
         }
         return ResponseEntity.ok().build();
     }
+
+    @Override
+    public ResponseEntity<UserDTO> getUserById(String id) {
+        return ResponseEntity.ok(userService.getUserById(id));
+    }
 }

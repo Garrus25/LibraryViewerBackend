@@ -1,12 +1,13 @@
 get:
-  summary: Pobierz określoną ilość najnowszych książek
-  operationId: getNewlyAddedBooks
+  summary: Get all reviews created by specific user
+  operationId: getAllReviewsCreatedBySpecificUser
   parameters:
-    - name: amount
+    - name: id
       in: path
+      description: ID of the user to retrieve reviews for
       required: true
       schema:
-        type: integer
+        type: string
   responses:
     200:
       description: OK
@@ -15,7 +16,7 @@ get:
           schema:
             type: array
             items:
-              $ref: '../../models/book.yml#/components/schemas/BookDTO'
+              $ref: '../../models/review.yml#/components/schemas/ReviewDTO'
     400:
       description: BAD REQUEST
       content:

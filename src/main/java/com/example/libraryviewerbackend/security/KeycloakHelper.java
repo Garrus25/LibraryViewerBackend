@@ -78,8 +78,6 @@ public class KeycloakHelper implements IKeycloakHelper {
             userRepresentation.setRequiredActions(new LinkedList<>());
         }
 
-        userRepresentation.getRequiredActions().add("VERIFY_EMAIL");
-
         Response response = usersResource.create(userRepresentation);
 
         if (response.getStatus() == HttpStatus.CREATED.value()) {
