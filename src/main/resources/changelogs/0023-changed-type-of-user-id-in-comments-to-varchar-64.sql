@@ -1,0 +1,1 @@
+ALTER TABLE comments ALTER COLUMN user_id TYPE varchar(64);
