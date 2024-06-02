@@ -93,3 +93,9 @@ paths:
 
   /review/created-by/{id}:
     $ref: 'paths/review/getAllReviewsCreatedBySpecificUser.yml'
+
+  /comment/all:
+    $ref: 'paths/comment/getAllComments.yml'
+
+  /comment:
+    $ref: 'paths/comment/addComment.yml'
