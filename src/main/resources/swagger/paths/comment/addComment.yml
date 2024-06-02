@@ -1,0 +1,27 @@
+post:
+  summary: Dodaj komentarz do bazy danych
+  operationId: addComment
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../models/comment.yml#/components/schemas/CommentDTO'
+  responses:
+    200:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../../models/comment.yml#/components/schemas/CommentDTO'
+    400:
+      description: BAD REQUEST
+      content:
+        application/json:
+          schema:
+            type: string
+    409:
+      description: CONFLICT
+      content:
+        application/json:
+          schema:
+            type: string

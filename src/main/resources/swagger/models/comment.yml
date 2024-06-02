@@ -1,0 +1,21 @@
+components:
+  schemas:
+    CommentDTO:
+      type: object
+      description: CommentEntity
+      properties:
+        commentId:
+          type: integer
+        body:
+          type: string
+        username:
+          type: string
+        userId:
+          type: string
+        parentId:
+          type: integer
+        createdAt:
+          type: string
+        bookId:
+          type: string
+          x-field-extra-annotation: '@NotNull()'
