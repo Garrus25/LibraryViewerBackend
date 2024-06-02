@@ -22,4 +22,8 @@ public class CommentRepositoryAdapter {
         return commentRepository.save(comment);
     }
 
+    public List<Comment> getCommentsByBookId(String bookId){
+        return commentRepository.getCommentsByBookId(bookId);
+    }
+
 }

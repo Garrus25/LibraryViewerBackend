@@ -8,4 +8,6 @@ public interface ICommentService {
     List<CommentDTO> getAllComments();
 
     CommentDTO addComment(CommentDTO commentDTO);
+
+    List<CommentDTO> getCommentsByBookId(String bookId);
 }

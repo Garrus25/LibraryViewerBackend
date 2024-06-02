@@ -29,4 +29,11 @@ public class CommentService implements ICommentService {
     public CommentDTO addComment(CommentDTO commentDTO) {
         return CommentModelMapper.INSTANCE.toDTO(commentRepositoryAdapter.addComment(CommentModelMapper.INSTANCE.toEntity(commentDTO)));
     }
+
+    @Override
+    public List<CommentDTO> getCommentsByBookId(String bookId) {
+        return commentRepositoryAdapter.getCommentsByBookId(bookId).stream()
+                .map(CommentModelMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+    }
 }

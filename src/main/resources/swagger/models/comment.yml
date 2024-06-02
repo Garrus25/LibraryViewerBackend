@@ -16,3 +16,6 @@ components:
           type: integer
         createdAt:
           type: string
+        bookId:
+          type: string
+          x-field-extra-annotation: '@NotNull()'

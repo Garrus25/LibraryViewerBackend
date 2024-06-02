@@ -99,3 +99,6 @@ paths:
 
   /comment:
     $ref: 'paths/comment/addComment.yml'
+
+  /comment/{id}:
+    $ref: 'paths/comment/getAllCommentsForSpecificBook.yml'

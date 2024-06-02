@@ -31,4 +31,7 @@ public class Comment implements Serializable {
 
     @Column(name="created_at")
     private LocalDateTime createdAt;
+
+    @Column(name="book_id")
+    private String bookId;
 }

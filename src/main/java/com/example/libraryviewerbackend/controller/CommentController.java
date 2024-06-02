@@ -27,4 +27,9 @@ public class CommentController extends CommentApiController {
     public ResponseEntity<CommentDTO> addComment(CommentDTO commentDTO) {
         return ResponseEntity.ok(commentService.addComment(commentDTO));
     }
+
+    @Override
+    public ResponseEntity<List<CommentDTO>> getAllCommentsForSpecificBook(String id) {
+        return ResponseEntity.ok(commentService.getCommentsByBookId(id));
+    }
 }
