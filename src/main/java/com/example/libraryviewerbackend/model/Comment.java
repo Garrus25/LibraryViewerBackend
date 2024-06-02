@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,5 +30,5 @@ public class Comment implements Serializable {
     private Integer parentId;
 
     @Column(name="created_at")
-    private LocalDate createdAt;
+    private LocalDateTime createdAt;
 }
