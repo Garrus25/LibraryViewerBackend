@@ -1,5 +1,7 @@
 get:
-  summary: get author by id
+  tags:
+    - Autor
+  summary: Pobierz autora na podstawie jego identyfikatora
   operationId: getAuthorB yId
   parameters:
     - name: id
@@ -28,7 +30,9 @@ get:
             type: string
 
 delete:
-  summary: delete author by id
+  tags:
+    - Autor
+  summary: Usun autora na podstawie jego identyfikatora
   operationId: deleteAuthorById
   parameters:
     - name: id

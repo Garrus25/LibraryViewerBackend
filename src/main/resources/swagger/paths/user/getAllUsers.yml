@@ -1,5 +1,7 @@
 get:
-  summary: Get all Users
+  tags:
+    - Użytkownik
+  summary: Pobierz wszystkich użytkowników
   operationId: getAllUsers
   responses:
     200:

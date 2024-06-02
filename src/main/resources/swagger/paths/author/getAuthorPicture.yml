@@ -1,5 +1,7 @@
 get:
-  summary: get author picture
+  tags:
+      - Autor
+  summary: Pobierz zdjęcie autora
   operationId: getAuthorPicture
   parameters:
     - name: filename

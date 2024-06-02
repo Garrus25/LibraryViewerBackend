@@ -2,7 +2,7 @@ components:
   schemas:
     RateIdentityDTO:
       type: object
-      description: rate identity object
+      description: Identyfikator oceny
       properties:
         ratedObjectId:
           type: string

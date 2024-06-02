@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Recenzja
   summary: Pobierz wszystkie recenzje
   operationId: getAllReviews
   responses:

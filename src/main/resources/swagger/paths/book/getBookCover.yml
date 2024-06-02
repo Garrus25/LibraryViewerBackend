@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Książka
   summary: Pobierz okładki książek
   operationId: getBookCover
   parameters:

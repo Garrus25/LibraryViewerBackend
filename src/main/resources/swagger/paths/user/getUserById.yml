@@ -1,5 +1,7 @@
 get:
-  summary: Get User by ID
+  tags:
+    - Użytkownik
+  summary: Pobierz użytkownika na podstawie jego identyfikatora
   operationId: getUserById
   parameters:
     - name: id

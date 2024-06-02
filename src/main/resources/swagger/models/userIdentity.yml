@@ -2,7 +2,7 @@ components:
   schemas:
     UserIdentityDTO:
       type: object
-      description: User Identity
+      description: Identyfikator użytkownika
       properties:
         id:
           x-field-extra-annotation: '@NotNull()'

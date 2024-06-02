@@ -1,5 +1,7 @@
 post:
-  summary: Upload an image
+  tags:
+    - Autor
+  summary: Wyslij zdjecie autora
   operationId: uploadAuthorPicture
   requestBody:
     content:

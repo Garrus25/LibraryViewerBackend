@@ -1,5 +1,7 @@
 get:
-  summary: Get all reviews created by specific user
+  tags:
+    - Recenzja
+  summary: Pobierz wszystkie recenzje dodane przez użytkownika
   operationId: getAllReviewsCreatedBySpecificUser
   parameters:
     - name: id

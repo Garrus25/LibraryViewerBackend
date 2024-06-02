@@ -1,5 +1,7 @@
 get:
-  summary: get all authors
+  tags:
+    - Autor
+  summary: Pobierz wszystkich autorów
   operationId: getAllAuthors
   responses:
     200:

@@ -2,7 +2,7 @@ components:
   schemas:
     RateDTO:
       type: object
-      description: RateDTO
+      description: Ocena
       properties:
         ratedObjectId:
           type: string

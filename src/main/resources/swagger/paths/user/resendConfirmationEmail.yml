@@ -1,5 +1,7 @@
 post:
-  summary: re-send confirmation email
+  tags:
+    - Użytkownik
+  summary: Ponownie wyślij email potwierdzający
   operationId: resendEmail
   requestBody:
     content:

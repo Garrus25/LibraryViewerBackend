@@ -1,5 +1,7 @@
 put:
-  summary: add or update rate
+  tags:
+    - Ocena
+  summary: Dodaj lub zaktualizuj ocenę
   operationId: addRate
   requestBody:
     content:
@@ -21,7 +23,9 @@ put:
             type: string
 
 post:
-  summary: get rate by id
+  tags:
+    - Ocena
+  summary: Pobierz ocenę na podstawie identyfikatora
   operationId: getRateById
   requestBody:
     content:

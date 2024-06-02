@@ -1,5 +1,7 @@
 post:
-  summary: Upload an image
+  tags:
+    - Książka
+  summary: Wyslij okładkę książki
   operationId: uploadBookCover
   requestBody:
     content:

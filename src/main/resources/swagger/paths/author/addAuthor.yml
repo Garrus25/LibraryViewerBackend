@@ -1,5 +1,7 @@
 post:
-  summary: add author to the database
+  tags:
+    - Autor
+  summary: Dodaj autora do bazy danych
   operationId: addAuthor
   requestBody:
     content:

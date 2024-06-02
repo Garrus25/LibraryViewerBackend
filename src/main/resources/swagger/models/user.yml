@@ -2,7 +2,7 @@ components:
   schemas:
     UserDTO:
       type: object
-      description: User Entity
+      description: Użytkownik
       properties:
         username:
           type: string

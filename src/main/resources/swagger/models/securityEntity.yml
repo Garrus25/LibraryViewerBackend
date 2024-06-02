@@ -2,7 +2,7 @@ components:
   schemas:
     SecurityEntity:
       type: object
-      description: Security Entity
+      description: Obiekt Security
       properties:
         token:
           type: string

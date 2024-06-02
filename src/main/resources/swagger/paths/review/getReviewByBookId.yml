@@ -1,5 +1,7 @@
 get:
-  summary: Pobierz listę recenzji na podstawie id ksiażki
+  tags:
+    - Recenzja
+  summary: Pobierz listę recenzji na podstawie identyfikatora ksiażki
   operationId: getReviewsByBookId
   parameters:
     - name: id

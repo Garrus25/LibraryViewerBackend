@@ -1,9 +1,9 @@
 openapi: "3.0.1"
 
 info:
-  title: "Library Viewer Backend"
-  version: "0.0.1"
-  description: API for the Library Viewer Application
+  title: "Library Viewer Backend - Dokumentacja API"
+  version: "1.0.0"
+  description: Dokument API Guide dla aplikacji Library Viewer
 
 servers:
   - url: http://localhost:8080/api

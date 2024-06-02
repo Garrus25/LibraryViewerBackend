@@ -2,7 +2,7 @@ components:
   schemas:
     BookDTO:
       type: object
-      description: Book Entity
+      description: Książka
       properties:
         isbn:
           type: string

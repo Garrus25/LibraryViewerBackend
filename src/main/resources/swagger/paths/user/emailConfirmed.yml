@@ -1,5 +1,7 @@
 post:
-  summary: Check if User confirmed his email address
+  tags:
+    - Użytkownik
+  summary: Potwierdź adres email
   operationId: checkIfEmailIsConfirmed
   requestBody:
     content:

@@ -2,7 +2,7 @@ components:
   schemas:
     AuthorDTO:
       type: object
-      description: Author Entity
+      description: Autor
       properties:
         authorId:
           type: integer

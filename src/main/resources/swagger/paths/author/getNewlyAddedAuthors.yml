@@ -1,5 +1,7 @@
 get:
-  summary: get specified amount of newly added authors
+  tags:
+    - Autor
+  summary: Pobierz najnowszych autorów
   operationId: getNewlyAddedAuthors
   parameters:
     - name: amount

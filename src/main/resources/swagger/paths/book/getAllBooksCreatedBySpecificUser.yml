@@ -1,4 +1,6 @@
 get:
+  tags:
+    - Książka
   summary: Pobierz książki dodane przez określonego użytkownika
   operationId: getAllBooksCreatedBySpecificUser
   parameters:

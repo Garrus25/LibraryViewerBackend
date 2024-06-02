@@ -1,5 +1,7 @@
 get:
-  summary: get average rate for specified object
+  tags:
+    - Ocena
+  summary: Pobierz średnią ocenę dla konkretnego obiektu
   operationId: getAverageRateForObject
   parameters:
     - name: ratedObjectId

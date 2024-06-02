@@ -1,5 +1,7 @@
 put:
-  summary: Add book Review
+  tags:
+    - Recenzja
+  summary: Dodaj recenzję książki
   operationId: addReview
   requestBody:
     content:
